@@ -1,10 +1,13 @@
 {
   "addedPartitions": [],
   "addedRegions": [],
-  "changed": false,
+  "changed": true,
   "changedPartitions": [],
-  "changedRegions": [],
+  "changedRegions": [
+    "ap-southeast-4",
+    "eu-central-2"
+  ],
   "removedPartitions": [],
   "removedRegions": [],
-  "retrievedAt": "2026-09-04T12:41:33Z"
+  "retrievedAt": "2026-09-04T20:46:24Z"
 }
