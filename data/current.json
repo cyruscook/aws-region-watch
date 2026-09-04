@@ -93,9 +93,10 @@
       "id": "aws-iso-b",
       "implicitGlobalRegion": "us-isob-east-1",
       "name": "aws-iso-b",
-      "regionCount": 2,
+      "regionCount": 3,
       "regionRegex": "^us\\-isob\\-\\w+\\-\\d+$",
       "regions": [
+        "us-isob-closed-1",
         "us-isob-east-1",
         "us-isob-west-1"
       ]
@@ -22486,6 +22487,10 @@
       "websiteDomain": "c2shome.ic.gov",
       "websiteDomainDualstack": "awshome.ic.gov"
     },
+    "us-isob-closed-1": {
+      "id": "us-isob-closed-1",
+      "partition": "aws-iso-b"
+    },
     "us-isob-east-1": {
       "description": "US ISOB East (Ohio)",
       "id": "us-isob-east-1",
@@ -23955,13 +23960,13 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-09-04T11:38:40Z",
+  "retrievedAt": "2026-09-04T12:41:33Z",
   "schemaVersion": 1,
   "sources": [
     {
-      "assetsScanned": 13,
+      "assetsScanned": 18,
       "kind": "aws-portal-assets",
-      "regionsObserved": 51,
+      "regionsObserved": 114,
       "url": "https://console.aws.amazon.com/"
     },
     {

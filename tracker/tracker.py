@@ -27,6 +27,9 @@ CHANGES_PATH = ROOT / "data" / "changes" / "latest.json"
 PORTAL_SEEDS = (
     "https://console.aws.amazon.com/",
     "https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js",
+    # The public console shell redirects unauthenticated crawlers to sign-in.
+    # This content-addressed bootstrap remains a direct fallback for region metadata.
+    "https://a.b.cdn.console.awsstatic.com/a/v1/3ELRO6TRPCNJ7JQCUM33Z4GYAV24JX5OOKYVXFTH7TAAKC5LQUBA/awsc-head.32.js",
 )
 REGIONAL_TABLE_URL = "https://api.regional-table.region-services.aws.a2z.com/index.json"
 BOTCORE_PARTITIONS_URL = (
@@ -37,6 +40,11 @@ USER_AGENT = (
     "(KHTML, like Gecko) Chrome/140.0 Safari/537.36 AWSDataTracker/1.0"
 )
 REGION_RE = re.compile(r"^[a-z][a-z0-9-]+-\d+$")
+PARTITION_RE = re.compile(r"^aws(?:-[a-z]+)*$")
+SCRIPT_URL_RE = re.compile(
+    r"""["'](?P<url>(?:(?:https?:)?//|/|\.{1,2}/|static/)[^"']+?\.(?:js|mjs)(?:[?#][^"']*)?)["']"""
+)
+PORTAL_ASSET_HOST_SUFFIX = ".awsstatic.com"
 
 
 class ScriptParser(html.parser.HTMLParser):
@@ -165,13 +173,13 @@ def ingest_object(
                 if observed_regions is not None:
                     observed_regions.add(region_id)
         elif (
-            str(key).startswith("aws")
+            PARTITION_RE.fullmatch(str(key))
             and isinstance(item, dict)
             and ("partitionLeader" in item or "consoleRootDomain" in item)
         ):
             partition = ensure_partition(snapshot, str(key))
             partition.update(clean_mapping(item))
-        elif REGION_RE.match(str(key)) and isinstance(item, str) and item.startswith("aws"):
+        elif REGION_RE.match(str(key)) and isinstance(item, str) and PARTITION_RE.fullmatch(item):
             region_id = str(key)
             merge_region(snapshot, region_id, {"partition": item})
             if observed_regions is not None:
@@ -187,6 +195,22 @@ def extract_json_parse_values(script: str) -> Iterable[Any]:
             yield json.loads(decoded)
         except (SyntaxError, ValueError, json.JSONDecodeError):
             continue
+
+
+def extract_script_urls(script: str) -> Iterable[str]:
+    for match in SCRIPT_URL_RE.finditer(script):
+        yield match.group("url")
+
+
+def is_portal_asset_url(candidate: str, base_url: str) -> bool:
+    parsed = urllib.parse.urlparse(candidate)
+    base = urllib.parse.urlparse(base_url)
+    hostname = parsed.hostname
+    return bool(
+        parsed.scheme == "https"
+        and hostname
+        and (hostname == base.hostname or hostname.endswith(PORTAL_ASSET_HOST_SUFFIX))
+    )
 
 
 def extract_portal_text(snapshot: dict[str, Any], script: str) -> int:
@@ -255,6 +279,10 @@ def discover_portal(snapshot: dict[str, Any], max_scripts: int = 80) -> None:
         ):
             candidate = urllib.parse.urljoin(final_url, relative)
             if candidate.startswith("https://") and candidate not in visited:
+                queue.append(candidate)
+        for source in extract_script_urls(text):
+            candidate = urllib.parse.urljoin(final_url, source)
+            if is_portal_asset_url(candidate, final_url) and candidate not in visited:
                 queue.append(candidate)
 
     if not successful or not observed_regions:

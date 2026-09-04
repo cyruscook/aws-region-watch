@@ -86,6 +86,16 @@ class TrackerTests(unittest.TestCase):
 
         self.assertEqual(3, observed_regions)
 
+    def test_ingestion_rejects_console_domains_as_partition_ids(self):
+        snapshot = tracker.empty_snapshot("2026-09-04T00:00:00Z")
+        script = r"""e.exports = JSON.parse(
+                '{"us-isob-east-1":"awsc-integ.sc2shome.sgov.gov"}'
+            );"""
+
+        tracker.extract_portal_text(snapshot, script)
+
+        self.assertNotIn("awsc-integ.sc2shome.sgov.gov", snapshot["partitions"])
+
     def test_portal_discovery_accepts_preexisting_regions(self):
         snapshot = tracker.empty_snapshot("2026-09-04T00:00:00Z")
         tracker.merge_region(snapshot, "xx-test-1", {"partition": "aws-test"})
@@ -117,6 +127,37 @@ class TrackerTests(unittest.TestCase):
             },
             snapshot["sources"][0],
         )
+
+    def test_portal_discovery_follows_absolute_javascript_urls(self):
+        seed_url = "https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js"
+        child_url = "https://a.b.cdn.console.awsstatic.com/a/v1/build/awsc-head.32.js"
+        payloads = {
+            seed_url: (
+                f'const child = "{child_url}"; const regions = {{"seed-test-1":"aws-test"}};'
+            ).encode(),
+            child_url: (
+                b"""e.exports = JSON.parse(
+                    '{"us-isob-closed-1":"aws-iso-b"}'
+                );"""
+            ),
+        }
+        requested = []
+
+        def fetch(url):
+            requested.append(url)
+            return payloads[url], url
+
+        snapshot = tracker.empty_snapshot("2026-09-04T00:00:00Z")
+        with (
+            patch.object(tracker, "PORTAL_SEEDS", (seed_url,)),
+            patch.object(tracker, "fetch", side_effect=fetch),
+        ):
+            tracker.discover_portal(snapshot)
+
+        self.assertEqual([seed_url, child_url], requested)
+        self.assertEqual("aws-iso-b", snapshot["regions"]["us-isob-closed-1"]["partition"])
+        self.assertEqual(2, snapshot["sources"][0]["assetsScanned"])
+        self.assertEqual(2, snapshot["sources"][0]["regionsObserved"])
 
     def test_change_detection_ignores_retrieval_metadata(self):
         before = sample_snapshot("2026-09-03T00:00:00Z")
