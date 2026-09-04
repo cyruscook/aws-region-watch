@@ -1,0 +1,34 @@
+name: Python checks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tracker/**"
+      - "Makefile"
+      - ".github/workflows/python.yml"
+  pull_request:
+    paths:
+      - "tracker/**"
+      - "Makefile"
+      - ".github/workflows/python.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --directory tracker --locked --dev
+      - name: Ruff format check
+        run: make format-check
+      - name: Ruff lint
+        run: make lint
+      - name: Ty type check
+        run: make typecheck
+      - name: Unit tests
+        run: make test

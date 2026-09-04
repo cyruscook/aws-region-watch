@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.ruff_cache/
+site/.astro/
+site/dist/
+site/node_modules/
+.DS_Store
+.env
+.env.*
+!.env.example

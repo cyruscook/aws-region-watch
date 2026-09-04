@@ -1,0 +1,34 @@
+name: Update AWS metadata
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: aws-metadata-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --directory tracker --locked --dev
+      - id: tracker
+        run: uv --directory tracker run python tracker.py update
+      - name: Commit changed data
+        if: steps.tracker.outputs.changed == 'true'
+        env:
+          SUMMARY: ${{ steps.tracker.outputs.summary }}
+        run: |
+          git config user.name "aws-region-watch[bot]"
+          git config user.email "aws-region-watch[bot]@users.noreply.github.com"
+          git add data
+          git commit -m "data: update AWS metadata"
+          git push

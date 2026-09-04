@@ -1,0 +1,156 @@
+---
+import data from "../../../data/current.json";
+import "../styles/global.css";
+
+const snapshot = data;
+const partitions = Object.values(snapshot.partitions).sort((a, b) => a.id.localeCompare(b.id));
+const regions = Object.values(snapshot.regions);
+const serviceCount = regions.reduce((sum, region) => sum + (region.serviceCount || 0), 0);
+const updatedAt = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "medium",
+  timeStyle: "short",
+  timeZone: "UTC",
+}).format(new Date(snapshot.retrievedAt));
+const sourceLabels = { "aws-portal-assets": "AWS unpublished region metadata" };
+
+function hasValue(value) {
+  return value !== undefined && value !== null && value !== "";
+}
+
+function isUnpublishedData(region) {
+  return !region.description && !region.serviceCount;
+}
+
+function regionFacts(region) {
+  return [
+    ["Partition", region.partition],
+    ["Website domain", region.websiteDomain],
+    ["Dual-stack website domain", region.websiteDomainDualstack],
+    ...Object.entries(region.pAuthEndpoints || {}).map(([stage, endpoint]) => [
+      `Authentication · ${stage}`,
+      endpoint,
+    ]),
+    ...Object.entries(region.upsEndpoints || {}).map(([stage, endpoint]) => [
+      `Preferences · ${stage}`,
+      endpoint,
+    ]),
+  ].filter(([, value]) => hasValue(value));
+}
+
+function partitionFacts(partition) {
+  return [
+    ["Leader", partition.partitionLeader],
+    ["Console", partition.consoleRootDomain],
+    ["Dual-stack console", partition.consoleRootDomainDualstack],
+    ["DNS suffix", partition.dnsSuffix],
+    ["Region pattern", partition.regionRegex],
+  ].filter(([, value]) => hasValue(value));
+}
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tracked AWS partitions, regions, console domains, and regional services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <title>AWS Region Watch</title>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <h1>AWS Region Watch</h1>
+        <p class="lede">A list of AWS partitions, regions, and associated metadata, enriched with unpublished and unannounced data.</p>
+      </div>
+      <div class="metrics" aria-label="Dataset summary">
+        <div><span>01 / Partitions</span><strong>{partitions.length.toLocaleString()}</strong></div>
+        <div><span>02 / Regions</span><strong>{regions.length.toLocaleString()}</strong></div>
+        <div><span>03 / Services</span><strong>{serviceCount.toLocaleString()}</strong></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-heading">
+      <div>
+        <h2>Find a region</h2>
+      </div>
+    </div>
+    <section class="controls" aria-label="Region filters">
+      <label class="search">
+        <span>Search regions</span>
+        <span class="input-wrap"><span aria-hidden="true">&gt;_</span><input id="search" type="search" placeholder="region, domain, or service…" autocomplete="off"></span>
+      </label>
+      <label>
+        <span>AWS partition</span>
+        <select id="partition-filter">
+          <option value="">All partitions</option>
+          {partitions.map((partition) => <option value={partition.id}>{partition.id} ({partition.regionCount})</option>)}
+        </select>
+      </label>
+      <label class="checkbox">
+        <input id="unpublished-only" type="checkbox">
+        <span>Unpublished data only</span>
+      </label>
+    </section>
+
+    <section class="status" aria-live="polite">
+      <span><i aria-hidden="true"></i><b id="result-count">{regions.length} regions across {partitions.length} partitions</b></span>
+      <span>Retrieved <time datetime={snapshot.retrievedAt}>{updatedAt} UTC</time></span>
+    </section>
+
+    <section id="partition-list" class="partition-list" aria-label="AWS partitions">
+      {partitions.map((partition) => {
+        const partitionRegions = partition.regions
+          .map((id) => snapshot.regions[id])
+          .filter(Boolean)
+          .sort((a, b) => a.id.localeCompare(b.id));
+        return (
+          <article class="partition" data-partition={partition.id}>
+            <header class="partition__header">
+              <div><p class="partition__label">Partition</p><h2>{partition.id}</h2></div>
+              <span class="partition__count" data-region-count>{partitionRegions.length} region{partitionRegions.length === 1 ? "" : "s"}</span>
+            </header>
+            <dl class="partition__facts">
+              {partitionFacts(partition).map(([label, value]) => <div><dt>{label}</dt><dd>{typeof value === "object" ? JSON.stringify(value) : value}</dd></div>)}
+            </dl>
+            <div class="regions">
+              {partitionRegions.map((region) => (
+                <details class="region" data-partition={partition.id} data-unpublished={isUnpublishedData(region) ? "true" : "false"}>
+                  <summary>
+                    <span class="region__identity"><strong>{region.id}</strong><small>{region.description}</small></span>
+                    <span class="region__badges">
+                      {isUnpublishedData(region) && <span class="badge badge--unpublished">[UNPUBLISHED DATA]</span>}
+                      {region.serviceCount && <span class="badge">[{region.serviceCount} SERVICES]</span>}
+                    </span>
+                    <span class="chevron" aria-hidden="true"></span>
+                  </summary>
+                  <div class="region__body">
+                    <section><h3>Endpoints and domains</h3><dl class="region__facts">
+                      {regionFacts(region).map(([label, value]) => <div><dt>{label}</dt><dd>{typeof value === "object" ? JSON.stringify(value) : value}</dd></div>)}
+                    </dl></section>
+                    {region.services?.length ? <section class="services-section"><h3>Services in this region <span class="service-total">· {region.services.length}</span></h3><div class="services">
+                      {region.services.map((service) => service.url ? <a href={service.url} target="_blank" rel="noreferrer">{service.name}</a> : <span>{service.name}</span>)}
+                    </div></section> : null}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </article>
+        );
+      })}
+    </section>
+    <div id="empty-state" class="empty" hidden>No regions match the current filters.</div>
+  </main>
+
+  <footer>
+    <p>This is an unofficial site with no affiliation to Amazon or Amazon Web Services.</p>
+    <p>Sources: {snapshot.sources.map((source, index) => <>{index > 0 && " · "}<a href={source.url} target="_blank" rel="noreferrer">{sourceLabels[source.kind] || source.kind}</a></>)}</p>
+  </footer>
+  <script src="../scripts/app.js"></script>
+</body>
+</html>
