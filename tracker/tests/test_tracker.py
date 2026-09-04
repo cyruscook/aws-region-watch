@@ -94,14 +94,17 @@ class TrackerTests(unittest.TestCase):
             b'websiteDomainDualstack:"dual.example.test"}};'
         )
 
-        with patch.object(
-            tracker,
-            "PORTAL_SEEDS",
-            ("https://example.test/portal.js",),
-        ), patch.object(
-            tracker,
-            "fetch",
-            return_value=(payload, "https://example.test/portal.js"),
+        with (
+            patch.object(
+                tracker,
+                "PORTAL_SEEDS",
+                ("https://example.test/portal.js",),
+            ),
+            patch.object(
+                tracker,
+                "fetch",
+                return_value=(payload, "https://example.test/portal.js"),
+            ),
         ):
             tracker.discover_portal(snapshot)
 
