@@ -1,5 +1,6 @@
 ---
 import data from "../../../data/current.json";
+import { feedPath } from "../lib/atom.js";
 import "../styles/global.css";
 
 const snapshot = data;
@@ -12,6 +13,14 @@ const updatedAt = new Intl.DateTimeFormat("en-US", {
   timeZone: "UTC",
 }).format(new Date(snapshot.retrievedAt));
 const sourceLabels = { "aws-portal-assets": "AWS unpublished region metadata" };
+const feeds = [
+  ["addedPartitions", "Added partitions"],
+  ["addedRegions", "Added regions"],
+  ["changedPartitions", "Changed partitions"],
+  ["changedRegions", "Changed regions"],
+  ["removedPartitions", "Removed partitions"],
+  ["removedRegions", "Removed regions"],
+];
 
 function hasValue(value) {
   return value !== undefined && value !== null && value !== "";
@@ -58,6 +67,7 @@ function partitionFacts(partition) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <title>AWS Region Watch</title>
+  {feeds.map(([category, label]) => <link rel="alternate" type="application/atom+xml" title={`AWS Region Watch · ${label}`} href={feedPath(category)} />)}
 </head>
 <body>
   <header class="hero">

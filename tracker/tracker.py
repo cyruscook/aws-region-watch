@@ -23,6 +23,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "current.json"
 CHANGES_PATH = ROOT / "data" / "changes" / "latest.json"
+CHANGES_HISTORY_PATH = ROOT / "data" / "changes" / "history"
 
 PORTAL_SEEDS = (
     "https://console.aws.amazon.com/",
@@ -463,6 +464,7 @@ def update(allow_partial: bool = False) -> tuple[dict[str, Any], dict[str, Any]]
     if changes["changed"] and before is not None:
         history_name = timestamp.replace(":", "-") + ".json"
         write_json(ROOT / "data" / "history" / history_name, snapshot)
+        write_json(CHANGES_HISTORY_PATH / history_name, changes)
     set_action_outputs(changes)
     return snapshot, changes
 

@@ -179,6 +179,28 @@ main {
   font: 600 10px/16px "JetBrains Mono", monospace;
   letter-spacing: .06em;
 }
+.feed-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+  margin: 0 0 18px;
+  color: var(--muted);
+  font: 600 10px/16px "JetBrains Mono", monospace;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.feed-links a {
+  color: #006970;
+  font-weight: 700;
+}
+
+.feed-links a:hover {
+  color: var(--ink);
+  background: var(--cyan);
+  box-shadow: 2px 2px 0 var(--ink);
+}
 
 .controls {
   position: sticky;
