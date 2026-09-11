@@ -76,6 +76,36 @@ class TrackerTests(unittest.TestCase):
         self.assertEqual("example.test", snapshot["regions"]["xx-test-1"]["websiteDomain"])
         self.assertEqual("console.example", snapshot["partitions"]["aws-test"]["consoleRootDomain"])
 
+    def test_portal_extractor_ingests_region_metadata_and_airport_maps(self):
+        snapshot = tracker.empty_snapshot("2026-09-04T00:00:00Z")
+        script = """const regions=[{
+            regionName:"us-isob-east-1",
+            regionLongName:"US ISOB East (Ohio)",
+            airportCode:"LCK",
+            optIn:!1,
+            arnPartition:"aws-iso-b",
+            status:"GA",
+            services:{ec2:!0,sts:!0,polaroid:!1}
+        }];
+        const airportRegions={FRA:"eu-central-1"};
+        const pairs=[{airportCode:"AKL",regionName:"ap-southeast-6"}];"""
+
+        observed_regions = tracker.extract_portal_text(snapshot, script)
+
+        region = snapshot["regions"]["us-isob-east-1"]
+        self.assertEqual(3, observed_regions)
+        self.assertEqual("US ISOB East (Ohio)", region["regionLongName"])
+        self.assertEqual("LCK", region["airportCode"])
+        self.assertFalse(region["optIn"])
+        self.assertEqual("aws-iso-b", region["partition"])
+        self.assertEqual("GA", region["status"])
+        self.assertEqual(
+            {"ec2": True, "sts": True, "polaroid": False},
+            region["consoleServiceSupport"],
+        )
+        self.assertEqual("FRA", snapshot["regions"]["eu-central-1"]["airportCode"])
+        self.assertEqual("AKL", snapshot["regions"]["ap-southeast-6"]["airportCode"])
+
     def test_portal_extractor_counts_regions_from_all_paths(self):
         snapshot = tracker.empty_snapshot("2026-09-04T00:00:00Z")
         script = r"""const a=JSON.parse('{"json-test-1":{"arnPartition":"aws-test"}}');

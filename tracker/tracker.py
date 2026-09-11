@@ -31,6 +31,10 @@ PORTAL_SEEDS = (
     # The public console shell redirects unauthenticated crawlers to sign-in.
     # This content-addressed bootstrap remains a direct fallback for region metadata.
     "https://a.b.cdn.console.awsstatic.com/a/v1/3ELRO6TRPCNJ7JQCUM33Z4GYAV24JX5OOKYVXFTH7TAAKC5LQUBA/awsc-head.32.js",
+    "https://a.b.cdn.console.awsstatic.com/a/v1/NXKJD5PVBJCFHBQ65VP36WL6NSOXPSW56P3NYLT6MPUUMUBYBRBQ/module-metadata.js",
+    "https://a.b.cdn.console.awsstatic.com/a/v1/QO76PXEAKZGSHKYLBAD46AVWWIIPT5ZM6ZABDG6C6OPNLK4F5KWA/assets/module-zIL3Pj2E.js",
+    "https://a.b.cdn.console.awsstatic.com/a/v1/UNYSR5LQSO3YLPRJU5TJ3R7KKGOAFAVJ2PKDK7Q6VBXHOYVMU77Q/module.ByW0-r0G.js",
+    "https://a.b.cdn.console.awsstatic.com/a/v1/5334XNP5CFYJ7TNIYGP3TB252SNGC5XYX24VDWIX5WQ2VDGXJFSA/module.js",
 )
 REGIONAL_TABLE_URL = "https://api.regional-table.region-services.aws.a2z.com/index.json"
 BOTCORE_PARTITIONS_URL = (
@@ -214,10 +218,98 @@ def is_portal_asset_url(candidate: str, base_url: str) -> bool:
     )
 
 
+def enclosing_js_object(script: str, property_start: int) -> str | None:
+    start = script.rfind("{", 0, property_start)
+    if start < 0:
+        return None
+    depth = 0
+    quote: str | None = None
+    escaped = False
+    for index in range(start, len(script)):
+        character = script[index]
+        if quote:
+            if escaped:
+                escaped = False
+            elif character == "\\":
+                escaped = True
+            elif character == quote:
+                quote = None
+            continue
+        if character in "\"'`":
+            quote = character
+        elif character == "{":
+            depth += 1
+        elif character == "}":
+            depth -= 1
+            if depth == 0:
+                return script[start : index + 1]
+    return None
+
+
+def js_string_property(value: str, property_name: str) -> str | None:
+    match = re.search(
+        rf"""(?:\b{re.escape(property_name)}\b|["']{re.escape(property_name)}["'])"""
+        r"""\s*:\s*["'](?P<value>[^"']+)["']""",
+        value,
+    )
+    return match.group("value") if match else None
+
+
+def extract_region_metadata(
+    snapshot: dict[str, Any], script: str, observed_regions: set[str]
+) -> None:
+    region_names = re.compile(
+        r"""(?:\bregionName\b|["']regionName["'])\s*:\s*["']"""
+        r"""(?P<region>[a-z][a-z0-9-]+-\d+)["']"""
+    )
+    for match in region_names.finditer(script):
+        body = enclosing_js_object(script, match.start())
+        if not body:
+            continue
+        region_id = match.group("region")
+        fields: dict[str, Any] = {}
+        for source, target in (
+            ("regionLongName", "regionLongName"),
+            ("airportCode", "airportCode"),
+            ("arnPartition", "partition"),
+            ("status", "status"),
+        ):
+            item = js_string_property(body, source)
+            if item is not None:
+                fields[target] = item
+        opt_in = re.search(r"\boptIn\s*:\s*(?P<value>!0|!1|true|false)", body)
+        if opt_in:
+            fields["optIn"] = opt_in.group("value") in ("!0", "true")
+        services = re.search(r"\bservices\s*:\s*\{(?P<items>[^{}]*)\}", body)
+        if services:
+            support = {
+                name: value in ("!0", "true")
+                for name, value in re.findall(
+                    r"([A-Za-z0-9_-]+)\s*:\s*(!0|!1|true|false)",
+                    services.group("items"),
+                )
+            }
+            if support:
+                fields["consoleServiceSupport"] = support
+        if fields:
+            merge_region(snapshot, region_id, fields)
+            observed_regions.add(region_id)
+
+    airport_pairs = re.compile(
+        r"""(?<![A-Za-z0-9_$])["']?(?P<airport>[A-Z]{3})["']?\s*:\s*"""
+        r"""["'](?P<region>[a-z][a-z0-9-]+-\d+)["']"""
+    )
+    for match in airport_pairs.finditer(script):
+        region_id = match.group("region")
+        merge_region(snapshot, region_id, {"airportCode": match.group("airport")})
+        observed_regions.add(region_id)
+
+
 def extract_portal_text(snapshot: dict[str, Any], script: str) -> int:
     observed_regions: set[str] = set()
     for value in extract_json_parse_values(script):
         ingest_object(snapshot, value, observed_regions)
+    extract_region_metadata(snapshot, script, observed_regions)
     region_domains = re.compile(
         r'["\'](?P<region>[a-z][a-z0-9-]+-\d+)["\']\s*:\s*\{'
         r'[^{}]{0,500}?websiteDomain\s*:\s*["\'](?P<domain>[^"\']+)["\']\s*,'

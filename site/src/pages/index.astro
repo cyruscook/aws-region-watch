@@ -32,9 +32,17 @@ function isUnpublishedData(region) {
 
 function regionFacts(region) {
   return [
+    ["Name", region.regionLongName],
+    ["Airport code", region.airportCode],
+    ["Availability", region.status],
+    ["Opt-in required", hasValue(region.optIn) ? (region.optIn ? "Yes" : "No") : undefined],
     ["Partition", region.partition],
     ["Website domain", region.websiteDomain],
     ["Dual-stack website domain", region.websiteDomainDualstack],
+    ...Object.entries(region.consoleServiceSupport || {}).map(([service, supported]) => [
+      `Console support · ${service.toUpperCase()}`,
+      supported ? "Yes" : "No",
+    ]),
     ...Object.entries(region.pAuthEndpoints || {}).map(([stage, endpoint]) => [
       `Authentication · ${stage}`,
       endpoint,
@@ -132,9 +140,11 @@ function partitionFacts(partition) {
               {partitionRegions.map((region) => (
                 <details class="region" data-partition={partition.id} data-unpublished={isUnpublishedData(region) ? "true" : "false"}>
                   <summary>
-                    <span class="region__identity"><strong>{region.id}</strong><small>{region.description}</small></span>
+                    <span class="region__identity"><strong>{region.id}</strong><small>{region.description || region.regionLongName}</small></span>
                     <span class="region__badges">
                       {isUnpublishedData(region) && <span class="badge badge--unpublished">[UNPUBLISHED DATA]</span>}
+                      {region.status && <span class="badge">[{region.status}]</span>}
+                      {region.optIn && <span class="badge">[OPT-IN]</span>}
                       {region.serviceCount && <span class="badge">[{region.serviceCount} SERVICES]</span>}
                     </span>
                     <span class="chevron" aria-hidden="true"></span>
