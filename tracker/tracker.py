@@ -40,6 +40,7 @@ REGIONAL_TABLE_URL = "https://api.regional-table.region-services.aws.a2z.com/ind
 BOTCORE_PARTITIONS_URL = (
     "https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/partitions.json"
 )
+IP_RANGES_URL = "https://ip-ranges.amazonaws.com/ip-ranges.json"
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/140.0 Safari/537.36 AWSDataTracker/1.0"
@@ -135,11 +136,19 @@ def infer_partition(
     return next((partition for prefix, partition in prefixes if region.startswith(prefix)), "aws")
 
 
+def merge_mapping(target: dict[str, Any], values: dict[str, Any]) -> None:
+    for key, value in clean_mapping(values).items():
+        if isinstance(value, dict) and isinstance(target.get(key), dict):
+            merge_mapping(target[key], value)
+        else:
+            target[key] = value
+
+
 def merge_region(snapshot: dict[str, Any], region_id: str, values: dict[str, Any]) -> None:
     if not REGION_RE.match(region_id):
         return
     region = snapshot["regions"].setdefault(region_id, {"id": region_id})
-    region.update(clean_mapping(values))
+    merge_mapping(region, values)
     partition_id = region.get("partition") or infer_partition(
         snapshot, region_id, region.get("websiteDomain")
     )
@@ -167,8 +176,11 @@ def ingest_object(
                 ("regionName", "regionName"),
                 ("websiteDomain", "websiteDomain"),
                 ("websiteDomainDualstack", "websiteDomainDualstack"),
+                ("devDomain", "developmentDomain"),
                 ("pAuthEndpointByStageMap", "pAuthEndpoints"),
+                ("pAuthDualStackEndpointByStageMap", "pAuthDualStackEndpoints"),
                 ("upsEndpointByStageMap", "upsEndpoints"),
+                ("upsDualStackEndpointByStageMap", "upsDualStackEndpoints"),
             ):
                 if source in item:
                     fields[target] = item[source]
@@ -255,6 +267,170 @@ def js_string_property(value: str, property_name: str) -> str | None:
     return match.group("value") if match else None
 
 
+def js_object_at(value: str, start: int) -> str | None:
+    if start >= len(value) or value[start] != "{":
+        return None
+    depth = 0
+    quote: str | None = None
+    escaped = False
+    for index in range(start, len(value)):
+        character = value[index]
+        if quote:
+            if escaped:
+                escaped = False
+            elif character == "\\":
+                escaped = True
+            elif character == quote:
+                quote = None
+            continue
+        if character in "\"'`":
+            quote = character
+        elif character == "{":
+            depth += 1
+        elif character == "}":
+            depth -= 1
+            if depth == 0:
+                return value[start : index + 1]
+    return None
+
+
+def js_object_property(value: str, property_name: str) -> str | None:
+    match = re.search(
+        rf"""(?:\b{re.escape(property_name)}\b|["']{re.escape(property_name)}["'])"""
+        r"""\s*:\s*(?P<brace>\{)""",
+        value,
+    )
+    return js_object_at(value, match.start("brace")) if match else None
+
+
+def js_string_mapping(value: str) -> dict[str, str]:
+    return {
+        bare_key or quoted_key: item
+        for bare_key, quoted_key, item in re.findall(
+            r"""(?:\b([A-Za-z_$][\w$-]*)\b|["']([^"']+)["'])"""
+            r"""\s*:\s*["']([^"']+)["']""",
+            value,
+        )
+    }
+
+
+def js_boolean_property(value: str, property_name: str) -> bool | None:
+    match = re.search(
+        rf"""(?:\b{re.escape(property_name)}\b|["']{re.escape(property_name)}["'])"""
+        r"""\s*:\s*(?P<value>!0|!1|true|false)""",
+        value,
+    )
+    if not match:
+        return None
+    return match.group("value") in ("!0", "true")
+
+
+def js_nesting_depth(value: str, position: int) -> int:
+    depth = 0
+    quote: str | None = None
+    escaped = False
+    for character in value[:position]:
+        if quote:
+            if escaped:
+                escaped = False
+            elif character == "\\":
+                escaped = True
+            elif character == quote:
+                quote = None
+            continue
+        if character in "\"'`":
+            quote = character
+        elif character == "{":
+            depth += 1
+        elif character == "}":
+            depth -= 1
+    return depth
+
+
+def region_fields_from_js_object(body: str) -> dict[str, Any]:
+    fields: dict[str, Any] = {}
+    for source, target in (
+        ("regionLongName", "regionLongName"),
+        ("airportCode", "airportCode"),
+        ("arnPartition", "partition"),
+        ("status", "status"),
+        ("websiteDomain", "websiteDomain"),
+        ("websiteDomainDualstack", "websiteDomainDualstack"),
+        ("devDomain", "developmentDomain"),
+        ("fallbackRegion", "consoleFallbackRegion"),
+        ("dualstackEndpoint", "consoleControlEndpoint"),
+    ):
+        item = js_string_property(body, source)
+        if item is not None:
+            fields[target] = item
+
+    opt_in = js_boolean_property(body, "optIn")
+    if opt_in is not None:
+        fields["optIn"] = opt_in
+
+    for source, target in (
+        ("pAuthEndpointByStageMap", "pAuthEndpoints"),
+        ("pAuthDualStackEndpointByStageMap", "pAuthDualStackEndpoints"),
+        ("upsEndpointByStageMap", "upsEndpoints"),
+        ("upsDualStackEndpointByStageMap", "upsDualStackEndpoints"),
+    ):
+        mapping = js_object_property(body, source)
+        if mapping:
+            values = js_string_mapping(mapping)
+            if values:
+                fields[target] = values
+
+    services = js_object_property(body, "services")
+    if not services:
+        return fields
+    support = {
+        match.group("name"): match.group("value") in ("!0", "true")
+        for match in re.finditer(
+            r"""(?:^|[,{])\s*["']?(?P<name>[A-Za-z0-9_-]+)["']?\s*"""
+            r""":\s*(?P<value>!0|!1|true|false)""",
+            services,
+        )
+        if js_nesting_depth(services, match.start("name")) == 1
+    }
+    if support:
+        fields["consoleServiceSupport"] = support
+
+    console_services: dict[str, Any] = {}
+    for service_name in ("signin", "awsmanagementconsole"):
+        service = js_object_property(services, service_name)
+        if not service:
+            continue
+        endpoints: dict[str, str] = {}
+        for stage in re.finditer(
+            r"""(?:^|[,{])\s*["']?(?P<name>[A-Za-z0-9_-]+)["']?"""
+            r"""\s*:\s*(?P<brace>\{)""",
+            service,
+        ):
+            if js_nesting_depth(service, stage.start("name")) != 1:
+                continue
+            stage_body = js_object_at(service, stage.start("brace"))
+            endpoint = js_string_property(stage_body, "url") if stage_body else None
+            if endpoint:
+                endpoints[stage.group("name")] = endpoint
+        if endpoints:
+            console_services[service_name] = {"endpoints": endpoints}
+
+    console_home = js_object_property(services, "consolehome")
+    if console_home:
+        home: dict[str, Any] = {}
+        launched = js_boolean_property(console_home, "isLaunched")
+        if launched is not None:
+            home["isLaunched"] = launched
+        path_slug = js_string_property(console_home, "pathSlug")
+        if path_slug:
+            home["pathSlug"] = path_slug
+        if home:
+            console_services["consolehome"] = home
+    if console_services:
+        fields["consoleServices"] = console_services
+    return fields
+
+
 def extract_region_metadata(
     snapshot: dict[str, Any], script: str, observed_regions: set[str]
 ) -> None:
@@ -266,32 +442,20 @@ def extract_region_metadata(
         body = enclosing_js_object(script, match.start())
         if not body:
             continue
-        region_id = match.group("region")
-        fields: dict[str, Any] = {}
-        for source, target in (
-            ("regionLongName", "regionLongName"),
-            ("airportCode", "airportCode"),
-            ("arnPartition", "partition"),
-            ("status", "status"),
-        ):
-            item = js_string_property(body, source)
-            if item is not None:
-                fields[target] = item
-        opt_in = re.search(r"\boptIn\s*:\s*(?P<value>!0|!1|true|false)", body)
-        if opt_in:
-            fields["optIn"] = opt_in.group("value") in ("!0", "true")
-        services = re.search(r"\bservices\s*:\s*\{(?P<items>[^{}]*)\}", body)
-        if services:
-            support = {
-                name: value in ("!0", "true")
-                for name, value in re.findall(
-                    r"([A-Za-z0-9_-]+)\s*:\s*(!0|!1|true|false)",
-                    services.group("items"),
-                )
-            }
-            if support:
-                fields["consoleServiceSupport"] = support
+        fields = region_fields_from_js_object(body)
         if fields:
+            region_id = match.group("region")
+            merge_region(snapshot, region_id, fields)
+            observed_regions.add(region_id)
+
+    region_objects = re.compile(r"""["'](?P<region>[a-z][a-z0-9-]+-\d+)["']\s*:\s*(?P<brace>\{)""")
+    for match in region_objects.finditer(script):
+        body = js_object_at(script, match.start("brace"))
+        if not body:
+            continue
+        fields = region_fields_from_js_object(body)
+        if fields:
+            region_id = match.group("region")
             merge_region(snapshot, region_id, fields)
             observed_regions.add(region_id)
 
@@ -449,6 +613,60 @@ def enrich_from_regional_table(snapshot: dict[str, Any]) -> None:
     )
 
 
+def enrich_from_ip_ranges(snapshot: dict[str, Any]) -> None:
+    payload, final_url = fetch(IP_RANGES_URL)
+    document = json.loads(payload)
+    networks: defaultdict[str, dict[str, set[tuple[str, str, str]]]] = defaultdict(
+        lambda: {"ipv4": set(), "ipv6": set()}
+    )
+    for source_key, family, cidr_key in (
+        ("prefixes", "ipv4", "ip_prefix"),
+        ("ipv6_prefixes", "ipv6", "ipv6_prefix"),
+    ):
+        for item in document.get(source_key, []):
+            region_id = item.get("region")
+            cidr = item.get(cidr_key)
+            service = item.get("service")
+            border_group = item.get("network_border_group")
+            if (
+                not isinstance(region_id, str)
+                or not REGION_RE.fullmatch(region_id)
+                or not all(isinstance(value, str) for value in (cidr, service, border_group))
+            ):
+                continue
+            networks[region_id][family].add((cidr, service, border_group))
+    if not networks:
+        raise RuntimeError("AWS IP ranges contained no recognizable regional prefixes")
+
+    for region in snapshot["regions"].values():
+        region.pop("network", None)
+    for region_id, families in networks.items():
+        ipv4 = sorted(families["ipv4"])
+        ipv6 = sorted(families["ipv6"])
+        services = sorted({item[1] for item in ipv4 + ipv6})
+        border_groups = sorted({item[2] for item in ipv4 + ipv6})
+        merge_region(
+            snapshot,
+            region_id,
+            {
+                "network": {
+                    "ipv4PrefixCount": len(ipv4),
+                    "ipv6PrefixCount": len(ipv6),
+                    "services": services,
+                    "networkBorderGroups": border_groups,
+                }
+            },
+        )
+    snapshot["sources"].append(
+        {
+            "kind": "aws-ip-ranges",
+            "url": final_url,
+            "version": document.get("syncToken"),
+            "createdAt": document.get("createDate"),
+        }
+    )
+
+
 def finalize(snapshot: dict[str, Any]) -> None:
     for partition in snapshot["partitions"].values():
         partition["regions"] = []
@@ -534,7 +752,12 @@ def update(allow_partial: bool = False) -> tuple[dict[str, Any], dict[str, Any]]
     snapshot["retrievedAt"] = timestamp
     snapshot["sources"] = []
 
-    operations = (discover_portal, enrich_from_botocore, enrich_from_regional_table)
+    operations = (
+        discover_portal,
+        enrich_from_botocore,
+        enrich_from_regional_table,
+        enrich_from_ip_ranges,
+    )
     failures: list[str] = []
     for operation in operations:
         try:

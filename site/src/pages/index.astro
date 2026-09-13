@@ -12,7 +12,10 @@ const updatedAt = new Intl.DateTimeFormat("en-US", {
   timeStyle: "short",
   timeZone: "UTC",
 }).format(new Date(snapshot.retrievedAt));
-const sourceLabels = { "aws-portal-assets": "AWS unpublished region metadata" };
+const sourceLabels = {
+  "aws-portal-assets": "AWS unpublished region metadata",
+  "aws-ip-ranges": "AWS IP address ranges",
+};
 const feeds = [
   ["addedPartitions", "Added partitions"],
   ["addedRegions", "Added regions"],
@@ -39,6 +42,13 @@ function regionFacts(region) {
     ["Partition", region.partition],
     ["Website domain", region.websiteDomain],
     ["Dual-stack website domain", region.websiteDomainDualstack],
+    ["Development domain", region.developmentDomain],
+    ["Console control endpoint", region.consoleControlEndpoint],
+    ["Console fallback region", region.consoleFallbackRegion],
+    ["IPv4 prefix records", region.network?.ipv4PrefixCount],
+    ["IPv6 prefix records", region.network?.ipv6PrefixCount],
+    ["Network services", region.network?.services?.join(", ")],
+    ["Network border groups", region.network?.networkBorderGroups?.join(", ")],
     ...Object.entries(region.consoleServiceSupport || {}).map(([service, supported]) => [
       `Console support · ${service.toUpperCase()}`,
       supported ? "Yes" : "No",
@@ -47,10 +57,28 @@ function regionFacts(region) {
       `Authentication · ${stage}`,
       endpoint,
     ]),
+    ...Object.entries(region.pAuthDualStackEndpoints || {}).map(([stage, endpoint]) => [
+      `Authentication dual-stack · ${stage}`,
+      endpoint,
+    ]),
     ...Object.entries(region.upsEndpoints || {}).map(([stage, endpoint]) => [
       `Preferences · ${stage}`,
       endpoint,
     ]),
+    ...Object.entries(region.upsDualStackEndpoints || {}).map(([stage, endpoint]) => [
+      `Preferences dual-stack · ${stage}`,
+      endpoint,
+    ]),
+    ...Object.entries(region.consoleServices || {}).flatMap(([service, metadata]) =>
+      Object.entries(metadata.endpoints || {}).map(([stage, endpoint]) => [
+        `${service} · ${stage}`,
+        endpoint,
+      ]),
+    ),
+    ["Console home launched", hasValue(region.consoleServices?.consolehome?.isLaunched)
+      ? (region.consoleServices.consolehome.isLaunched ? "Yes" : "No")
+      : undefined],
+    ["Console home path", region.consoleServices?.consolehome?.pathSlug],
   ].filter(([, value]) => hasValue(value));
 }
 

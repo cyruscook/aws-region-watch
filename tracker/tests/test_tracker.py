@@ -1,3 +1,4 @@
+import json
 import unittest
 from unittest.mock import patch
 
@@ -88,7 +89,27 @@ class TrackerTests(unittest.TestCase):
             services:{ec2:!0,sts:!0,polaroid:!1}
         }];
         const airportRegions={FRA:"eu-central-1"};
-        const pairs=[{airportCode:"AKL",regionName:"ap-southeast-6"}];"""
+        const pairs=[{airportCode:"AKL",regionName:"ap-southeast-6"}];
+        const endpoints={"us-isob-east-1":{
+            websiteDomain:"sc2shome.sgov.gov",
+            websiteDomainDualstack:"awshome.scloud",
+            devDomain:"aws-dev.sc2shome.sgov.gov",
+            pAuthEndpointByStageMap:{
+                preprod:"us-isob-east-1.awsc-integ.sc2shome.sgov.gov",
+                prod:"us-isob-east-1.console.sc2shome.sgov.gov"
+            },
+            pAuthDualStackEndpointByStageMap:{
+                preprod:"us-isob-east-1.awsc-integ.awshome.scloud"
+            },
+            services:{
+                signin:{prodish:{url:"us-isob-east-1.aws-signin-testing.sgov.gov"}},
+                consolehome:{isLaunched:!0,pathSlug:"console"}
+            }
+        }};
+        const control={"us-isob-east-1":{
+            fallbackRegion:"us-isob-east-1",
+            dualstackEndpoint:"us-isob-east-1.ccs.console.api.aws"
+        }};"""
 
         observed_regions = tracker.extract_portal_text(snapshot, script)
 
@@ -105,6 +126,73 @@ class TrackerTests(unittest.TestCase):
         )
         self.assertEqual("FRA", snapshot["regions"]["eu-central-1"]["airportCode"])
         self.assertEqual("AKL", snapshot["regions"]["ap-southeast-6"]["airportCode"])
+        self.assertEqual("aws-dev.sc2shome.sgov.gov", region["developmentDomain"])
+        self.assertEqual(
+            "us-isob-east-1.awsc-integ.sc2shome.sgov.gov",
+            region["pAuthEndpoints"]["preprod"],
+        )
+        self.assertEqual(
+            "us-isob-east-1.awsc-integ.awshome.scloud",
+            region["pAuthDualStackEndpoints"]["preprod"],
+        )
+        self.assertEqual("us-isob-east-1", region["consoleFallbackRegion"])
+        self.assertEqual("us-isob-east-1.ccs.console.api.aws", region["consoleControlEndpoint"])
+        self.assertEqual(
+            "us-isob-east-1.aws-signin-testing.sgov.gov",
+            region["consoleServices"]["signin"]["endpoints"]["prodish"],
+        )
+        self.assertEqual(
+            {"isLaunched": True, "pathSlug": "console"},
+            region["consoleServices"]["consolehome"],
+        )
+
+    def test_ip_ranges_preserve_aggregate_regional_evidence(self):
+        document = {
+            "syncToken": "123",
+            "createDate": "2026-09-11-00-00-00",
+            "prefixes": [
+                {
+                    "ip_prefix": "15.248.168.0/21",
+                    "region": "sa-west-1",
+                    "service": "AMAZON",
+                    "network_border_group": "sa-west-1",
+                },
+                {
+                    "ip_prefix": "15.248.168.0/21",
+                    "region": "sa-west-1",
+                    "service": "EC2",
+                    "network_border_group": "sa-west-1",
+                },
+            ],
+            "ipv6_prefixes": [
+                {
+                    "ipv6_prefix": "2600:1f00:8000::/40",
+                    "region": "sa-west-1",
+                    "service": "AMAZON",
+                    "network_border_group": "sa-west-1",
+                }
+            ],
+        }
+        snapshot = tracker.empty_snapshot("2026-09-11T00:00:00Z")
+
+        with patch.object(
+            tracker,
+            "fetch",
+            return_value=(
+                json.dumps(document).encode(),
+                tracker.IP_RANGES_URL,
+            ),
+        ):
+            tracker.enrich_from_ip_ranges(snapshot)
+
+        network = snapshot["regions"]["sa-west-1"]["network"]
+        self.assertEqual(2, network["ipv4PrefixCount"])
+        self.assertEqual(1, network["ipv6PrefixCount"])
+        self.assertEqual(["AMAZON", "EC2"], network["services"])
+        self.assertEqual(["sa-west-1"], network["networkBorderGroups"])
+        self.assertNotIn("ipv4Prefixes", network)
+        self.assertNotIn("ipv6Prefixes", network)
+        self.assertEqual("123", snapshot["sources"][0]["version"])
 
     def test_portal_extractor_counts_regions_from_all_paths(self):
         snapshot = tracker.empty_snapshot("2026-09-04T00:00:00Z")
