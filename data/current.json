@@ -6174,7 +6174,7 @@
       "id": "ap-southeast-1",
       "network": {
         "ipv4PrefixCount": 414,
-        "ipv6PrefixCount": 276,
+        "ipv6PrefixCount": 278,
         "networkBorderGroups": [
           "ap-southeast-1",
           "ap-southeast-1-bkk-1",
@@ -11183,7 +11183,7 @@
       "id": "ca-central-1",
       "network": {
         "ipv4PrefixCount": 206,
-        "ipv6PrefixCount": 215,
+        "ipv6PrefixCount": 217,
         "networkBorderGroups": [
           "ca-central-1"
         ],
@@ -14451,8 +14451,8 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "eu-north-1",
       "network": {
-        "ipv4PrefixCount": 210,
-        "ipv6PrefixCount": 187,
+        "ipv4PrefixCount": 211,
+        "ipv6PrefixCount": 189,
         "networkBorderGroups": [
           "eu-north-1",
           "eu-north-1-cph-1",
@@ -15247,7 +15247,7 @@
       "id": "eu-south-1",
       "network": {
         "ipv4PrefixCount": 221,
-        "ipv6PrefixCount": 112,
+        "ipv6PrefixCount": 114,
         "networkBorderGroups": [
           "eu-south-1"
         ],
@@ -17557,7 +17557,7 @@
       "id": "eu-west-2",
       "network": {
         "ipv4PrefixCount": 404,
-        "ipv6PrefixCount": 159,
+        "ipv6PrefixCount": 161,
         "networkBorderGroups": [
           "eu-west-2",
           "eu-west-2-wl2-man-wlz-1"
@@ -22445,7 +22445,7 @@
       "id": "sa-east-1",
       "network": {
         "ipv4PrefixCount": 295,
-        "ipv6PrefixCount": 174,
+        "ipv6PrefixCount": 176,
         "networkBorderGroups": [
           "sa-east-1"
         ],
@@ -24241,7 +24241,7 @@
       "id": "us-east-2",
       "network": {
         "ipv4PrefixCount": 547,
-        "ipv6PrefixCount": 290,
+        "ipv6PrefixCount": 292,
         "networkBorderGroups": [
           "us-east-2",
           "us-east-2-jan-1"
@@ -28595,7 +28595,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-10-14T21:41:58Z",
+  "retrievedAt": "2026-10-15T04:40:47Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28616,10 +28616,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-10-14-18-57-06",
+      "createdAt": "2026-10-15-02-17-06",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1792004226"
+      "version": "1792030626"
     }
   ]
 }
