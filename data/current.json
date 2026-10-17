@@ -972,7 +972,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Hong Kong)",
-      "serviceCount": 149,
+      "serviceCount": 150,
       "services": [
         {
           "name": "AD Connector",
@@ -1157,6 +1157,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -4698,7 +4702,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Mumbai)",
-      "serviceCount": 183,
+      "serviceCount": 184,
       "services": [
         {
           "name": "AD Connector",
@@ -4927,6 +4931,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -5533,7 +5541,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Hyderabad)",
-      "serviceCount": 142,
+      "serviceCount": 143,
       "services": [
         {
           "name": "AD Connector",
@@ -5722,6 +5730,10 @@
         {
           "name": "AWS Outposts",
           "url": "https://aws.amazon.com/outposts/"
+        },
+        {
+          "name": "AWS Parallel Computing Service (PCS)",
+          "url": "https://aws.amazon.com/pcs/"
         },
         {
           "name": "AWS Payment Cryptography",
@@ -6222,7 +6234,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Singapore)",
-      "serviceCount": 190,
+      "serviceCount": 191,
       "services": [
         {
           "name": "AD Connector",
@@ -6463,6 +6475,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -7090,7 +7106,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Sydney)",
-      "serviceCount": 191,
+      "serviceCount": 192,
       "services": [
         {
           "name": "AD Connector",
@@ -7331,6 +7347,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -7926,7 +7946,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "ap-southeast-3",
       "network": {
-        "ipv4PrefixCount": 115,
+        "ipv4PrefixCount": 113,
         "ipv6PrefixCount": 96,
         "networkBorderGroups": [
           "ap-southeast-3"
@@ -9288,7 +9308,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Malaysia)",
-      "serviceCount": 152,
+      "serviceCount": 153,
       "services": [
         {
           "name": "AD Connector",
@@ -9485,6 +9505,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -10586,7 +10610,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Thailand)",
-      "serviceCount": 131,
+      "serviceCount": 132,
       "services": [
         {
           "name": "AD Connector",
@@ -10739,6 +10763,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -12894,7 +12922,7 @@
       },
       "partition": "aws",
       "regionLongName": "Europe (Frankfurt)",
-      "serviceCount": 191,
+      "serviceCount": 192,
       "services": [
         {
           "name": "AD Connector",
@@ -13135,6 +13163,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -14490,7 +14522,7 @@
       },
       "partition": "aws",
       "regionLongName": "Europe (Stockholm)",
-      "serviceCount": 171,
+      "serviceCount": 172,
       "services": [
         {
           "name": "AD Connector",
@@ -14711,6 +14743,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -15994,7 +16030,7 @@
       },
       "partition": "aws",
       "regionLongName": "Europe (Spain)",
-      "serviceCount": 152,
+      "serviceCount": 153,
       "services": [
         {
           "name": "AD Connector",
@@ -16175,6 +16211,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -16720,7 +16760,7 @@
       },
       "partition": "aws",
       "regionLongName": "Europe (Ireland)",
-      "serviceCount": 191,
+      "serviceCount": 192,
       "services": [
         {
           "name": "AD Connector",
@@ -16965,6 +17005,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -21854,7 +21898,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "mx-central-1",
       "network": {
-        "ipv4PrefixCount": 66,
+        "ipv4PrefixCount": 67,
         "ipv6PrefixCount": 83,
         "networkBorderGroups": [
           "mx-central-1"
@@ -24284,7 +24328,7 @@
       },
       "partition": "aws",
       "regionLongName": "US East (Ohio)",
-      "serviceCount": 187,
+      "serviceCount": 188,
       "services": [
         {
           "name": "AD Connector",
@@ -24529,6 +24573,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -27805,7 +27853,7 @@
       },
       "partition": "aws",
       "regionLongName": "US West (Oregon)",
-      "serviceCount": 194,
+      "serviceCount": 195,
       "services": [
         {
           "name": "AD Connector",
@@ -28050,6 +28098,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -28597,7 +28649,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-10-16T21:09:47Z",
+  "retrievedAt": "2026-10-17T04:27:32Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28618,10 +28670,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-10-16-19-07-06",
+      "createdAt": "2026-10-17-01-47-06",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1792177626"
+      "version": "1792201626"
     }
   ]
 }
