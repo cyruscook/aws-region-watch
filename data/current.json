@@ -2279,7 +2279,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Tokyo)",
-      "serviceCount": 189,
+      "serviceCount": 190,
       "services": [
         {
           "name": "AD Connector",
@@ -2512,6 +2512,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -28649,7 +28653,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-10-17T15:36:28Z",
+  "retrievedAt": "2026-10-18T04:35:33Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28670,10 +28674,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-10-17-13-07-04",
+      "createdAt": "2026-10-18-01-47-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1792242424"
+      "version": "1792288025"
     }
   ]
 }
