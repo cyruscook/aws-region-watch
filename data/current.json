@@ -2233,7 +2233,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "ap-northeast-1",
       "network": {
-        "ipv4PrefixCount": 425,
+        "ipv4PrefixCount": 426,
         "ipv6PrefixCount": 211,
         "networkBorderGroups": [
           "ap-northeast-1",
@@ -3988,7 +3988,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Osaka)",
-      "serviceCount": 150,
+      "serviceCount": 151,
       "services": [
         {
           "name": "AD Connector",
@@ -4157,6 +4157,10 @@
         {
           "name": "AWS Identity and Access Management (IAM) Access Analyzer",
           "url": "https://aws.amazon.com/iam/access-analyzer/"
+        },
+        {
+          "name": "AWS Interconnect",
+          "url": "https://aws.amazon.com/interconnect/"
         },
         {
           "name": "AWS Key Management Service (KMS)",
@@ -24292,8 +24296,8 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-east-2",
       "network": {
-        "ipv4PrefixCount": 548,
-        "ipv6PrefixCount": 294,
+        "ipv4PrefixCount": 549,
+        "ipv6PrefixCount": 296,
         "networkBorderGroups": [
           "us-east-2",
           "us-east-2-jan-1"
@@ -28655,7 +28659,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-10-21T04:49:32Z",
+  "retrievedAt": "2026-10-22T04:48:11Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28676,10 +28680,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-10-21-01-07-05",
+      "createdAt": "2026-10-22-01-37-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1792544825"
+      "version": "1792633025"
     }
   ]
 }
