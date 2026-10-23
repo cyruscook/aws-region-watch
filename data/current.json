@@ -206,8 +206,8 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "af-south-1",
       "network": {
-        "ipv4PrefixCount": 135,
-        "ipv6PrefixCount": 111,
+        "ipv4PrefixCount": 139,
+        "ipv6PrefixCount": 113,
         "networkBorderGroups": [
           "af-south-1",
           "af-south-1-los-1"
@@ -226,6 +226,7 @@
           "EC2",
           "EC2_INSTANCE_CONNECT",
           "EFS",
+          "GLOBALACCELERATOR",
           "KINESIS_VIDEO_STREAMS",
           "ROUTE53_HEALTHCHECKS_PUBLISHING",
           "ROUTE53_RESOLVER",
@@ -7958,7 +7959,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "ap-southeast-3",
       "network": {
-        "ipv4PrefixCount": 113,
+        "ipv4PrefixCount": 115,
         "ipv6PrefixCount": 96,
         "networkBorderGroups": [
           "ap-southeast-3"
@@ -16742,8 +16743,8 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "eu-west-1",
       "network": {
-        "ipv4PrefixCount": 531,
-        "ipv6PrefixCount": 219,
+        "ipv4PrefixCount": 533,
+        "ipv6PrefixCount": 222,
         "networkBorderGroups": [
           "eu-west-1"
         ],
@@ -28687,7 +28688,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-10-23T04:50:58Z",
+  "retrievedAt": "2026-10-23T11:40:27Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28708,10 +28709,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-10-23-01-37-05",
+      "createdAt": "2026-10-23-06-57-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1792719425"
+      "version": "1792738625"
     }
   ]
 }
