@@ -2279,7 +2279,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Tokyo)",
-      "serviceCount": 190,
+      "serviceCount": 191,
       "services": [
         {
           "name": "AD Connector",
@@ -2980,6 +2980,10 @@
         {
           "name": "Amazon Simple Workflow Service (SWF)",
           "url": "https://aws.amazon.com/swf/"
+        },
+        {
+          "name": "Amazon Textract",
+          "url": "https://aws.amazon.com/textract"
         },
         {
           "name": "Amazon Transcribe",
@@ -11259,7 +11263,7 @@
       },
       "partition": "aws",
       "regionLongName": "Canada (Central)",
-      "serviceCount": 184,
+      "serviceCount": 185,
       "services": [
         {
           "name": "AD Connector",
@@ -11640,6 +11644,10 @@
         {
           "name": "Amazon Bedrock AgentCore",
           "url": "https://aws.amazon.com/bedrock/agentcore/"
+        },
+        {
+          "name": "Amazon Bedrock AgentCore Registry",
+          "url": "https://docs.aws.amazon.com/agent-registry/"
         },
         {
           "name": "Amazon Chime SDK",
@@ -12930,7 +12938,7 @@
       },
       "partition": "aws",
       "regionLongName": "Europe (Frankfurt)",
-      "serviceCount": 192,
+      "serviceCount": 193,
       "services": [
         {
           "name": "AD Connector",
@@ -13331,6 +13339,10 @@
         {
           "name": "Amazon Bedrock AgentCore",
           "url": "https://aws.amazon.com/bedrock/agentcore/"
+        },
+        {
+          "name": "Amazon Bedrock AgentCore Registry",
+          "url": "https://docs.aws.amazon.com/agent-registry/"
         },
         {
           "name": "Amazon Chime SDK",
@@ -13801,7 +13813,7 @@
       },
       "partition": "aws",
       "regionLongName": "Europe (Zurich)",
-      "serviceCount": 141,
+      "serviceCount": 142,
       "services": [
         {
           "name": "AD Connector",
@@ -14314,6 +14326,10 @@
         {
           "name": "Amazon Simple Workflow Service (SWF)",
           "url": "https://aws.amazon.com/swf/"
+        },
+        {
+          "name": "Amazon Textract",
+          "url": "https://aws.amazon.com/textract"
         },
         {
           "name": "Amazon Transcribe",
@@ -17650,7 +17666,7 @@
       },
       "partition": "aws",
       "regionLongName": "Europe (London)",
-      "serviceCount": 189,
+      "serviceCount": 190,
       "services": [
         {
           "name": "AD Connector",
@@ -18039,6 +18055,10 @@
         {
           "name": "Amazon Bedrock AgentCore",
           "url": "https://aws.amazon.com/bedrock/agentcore/"
+        },
+        {
+          "name": "Amazon Bedrock AgentCore Registry",
+          "url": "https://docs.aws.amazon.com/agent-registry/"
         },
         {
           "name": "Amazon Braket",
@@ -21934,7 +21954,7 @@
       },
       "partition": "aws",
       "regionLongName": "Mexico (Central)",
-      "serviceCount": 123,
+      "serviceCount": 124,
       "services": [
         {
           "name": "AD Connector",
@@ -22315,6 +22335,10 @@
         {
           "name": "Amazon Managed Streaming for Apache Kafka (MSK)",
           "url": "https://aws.amazon.com/msk/"
+        },
+        {
+          "name": "Amazon Managed Workflows for Apache Airflow (MWAA)",
+          "url": "https://aws.amazon.com/managed-workflows-for-apache-airflow/"
         },
         {
           "name": "Amazon OpenSearch Service",
@@ -23350,7 +23374,7 @@
       "id": "us-east-1",
       "network": {
         "ipv4PrefixCount": 1492,
-        "ipv6PrefixCount": 607,
+        "ipv6PrefixCount": 608,
         "networkBorderGroups": [
           "us-east-1",
           "us-east-1-abe-1",
@@ -24338,7 +24362,7 @@
       },
       "partition": "aws",
       "regionLongName": "US East (Ohio)",
-      "serviceCount": 188,
+      "serviceCount": 189,
       "services": [
         {
           "name": "AD Connector",
@@ -24739,6 +24763,10 @@
         {
           "name": "Amazon Bedrock AgentCore",
           "url": "https://aws.amazon.com/bedrock/agentcore/"
+        },
+        {
+          "name": "Amazon Bedrock AgentCore Registry",
+          "url": "https://docs.aws.amazon.com/agent-registry/"
         },
         {
           "name": "Amazon Chime SDK",
@@ -25853,7 +25881,7 @@
       "id": "us-gov-west-1",
       "network": {
         "ipv4PrefixCount": 136,
-        "ipv6PrefixCount": 102,
+        "ipv6PrefixCount": 104,
         "networkBorderGroups": [
           "us-gov-west-1"
         ],
@@ -28659,7 +28687,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-10-22T21:36:45Z",
+  "retrievedAt": "2026-10-23T04:50:58Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28680,10 +28708,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-10-22-17-37-05",
+      "createdAt": "2026-10-23-01-37-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1792690625"
+      "version": "1792719425"
     }
   ]
 }
