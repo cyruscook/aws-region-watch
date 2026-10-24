@@ -2280,7 +2280,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Tokyo)",
-      "serviceCount": 191,
+      "serviceCount": 192,
       "services": [
         {
           "name": "AD Connector",
@@ -2469,6 +2469,10 @@
         {
           "name": "AWS Identity and Access Management (IAM) Access Analyzer",
           "url": "https://aws.amazon.com/iam/access-analyzer/"
+        },
+        {
+          "name": "AWS Interconnect",
+          "url": "https://aws.amazon.com/interconnect/"
         },
         {
           "name": "AWS IoT Core",
@@ -7075,7 +7079,7 @@
       "id": "ap-southeast-2",
       "network": {
         "ipv4PrefixCount": 330,
-        "ipv6PrefixCount": 188,
+        "ipv6PrefixCount": 190,
         "networkBorderGroups": [
           "ap-southeast-2",
           "ap-southeast-2-akl-1",
@@ -11224,7 +11228,7 @@
       "id": "ca-central-1",
       "network": {
         "ipv4PrefixCount": 206,
-        "ipv6PrefixCount": 217,
+        "ipv6PrefixCount": 219,
         "networkBorderGroups": [
           "ca-central-1"
         ],
@@ -16744,7 +16748,7 @@
       "id": "eu-west-1",
       "network": {
         "ipv4PrefixCount": 533,
-        "ipv6PrefixCount": 222,
+        "ipv6PrefixCount": 224,
         "networkBorderGroups": [
           "eu-west-1"
         ],
@@ -17626,7 +17630,7 @@
       "id": "eu-west-2",
       "network": {
         "ipv4PrefixCount": 406,
-        "ipv6PrefixCount": 161,
+        "ipv6PrefixCount": 163,
         "networkBorderGroups": [
           "eu-west-2",
           "eu-west-2-wl2-man-wlz-1"
@@ -18500,7 +18504,7 @@
       "id": "eu-west-3",
       "network": {
         "ipv4PrefixCount": 213,
-        "ipv6PrefixCount": 135,
+        "ipv6PrefixCount": 137,
         "networkBorderGroups": [
           "eu-west-3"
         ],
@@ -22524,7 +22528,7 @@
       "id": "sa-east-1",
       "network": {
         "ipv4PrefixCount": 295,
-        "ipv6PrefixCount": 176,
+        "ipv6PrefixCount": 178,
         "networkBorderGroups": [
           "sa-east-1"
         ],
@@ -23375,7 +23379,7 @@
       "id": "us-east-1",
       "network": {
         "ipv4PrefixCount": 1493,
-        "ipv6PrefixCount": 608,
+        "ipv6PrefixCount": 610,
         "networkBorderGroups": [
           "us-east-1",
           "us-east-1-abe-1",
@@ -24322,7 +24326,7 @@
       "id": "us-east-2",
       "network": {
         "ipv4PrefixCount": 549,
-        "ipv6PrefixCount": 296,
+        "ipv6PrefixCount": 298,
         "networkBorderGroups": [
           "us-east-2",
           "us-east-2-jan-1"
@@ -25186,7 +25190,7 @@
       "id": "us-gov-east-1",
       "network": {
         "ipv4PrefixCount": 104,
-        "ipv6PrefixCount": 93,
+        "ipv6PrefixCount": 95,
         "networkBorderGroups": [
           "us-gov-east-1"
         ],
@@ -28688,7 +28692,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-10-23T21:25:05Z",
+  "retrievedAt": "2026-10-24T04:37:58Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28709,10 +28713,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-10-23-18-17-05",
+      "createdAt": "2026-10-24-02-17-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1792779425"
+      "version": "1792808225"
     }
   ]
 }
