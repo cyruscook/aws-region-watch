@@ -21,7 +21,7 @@ The tracker collects AWS partition, region, endpoint, and service metadata.
 
 ## Setup and commands
 
-Use Node.js 22.12 or newer, Python 3.13 or newer, `npm`, and `uv`.
+Use a patched supported Node.js release (22.23.4, 24.22.1, or 26.12.1 or newer within the same major), Python 3.13 or newer, `npm`, and `uv`.
 
 ```sh
 make install
