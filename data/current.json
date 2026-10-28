@@ -15346,7 +15346,7 @@
       },
       "partition": "aws",
       "regionLongName": "Europe (Milan)",
-      "serviceCount": 152,
+      "serviceCount": 153,
       "services": [
         {
           "name": "AD Connector",
@@ -15499,6 +15499,10 @@
         {
           "name": "AWS Identity and Access Management (IAM) Access Analyzer",
           "url": "https://aws.amazon.com/iam/access-analyzer/"
+        },
+        {
+          "name": "AWS Interconnect",
+          "url": "https://aws.amazon.com/interconnect/"
         },
         {
           "name": "AWS IoT Core",
@@ -28692,7 +28696,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-10-27T22:14:54Z",
+  "retrievedAt": "2026-10-28T05:43:50Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28713,10 +28717,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-10-27-18-47-05",
+      "createdAt": "2026-10-28-02-47-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1793126825"
+      "version": "1793155625"
     }
   ]
 }
