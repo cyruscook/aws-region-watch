@@ -1672,7 +1672,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Taipei)",
-      "serviceCount": 118,
+      "serviceCount": 119,
       "services": [
         {
           "name": "AD Connector",
@@ -1785,6 +1785,10 @@
         {
           "name": "AWS Identity and Access Management (IAM) Access Analyzer",
           "url": "https://aws.amazon.com/iam/access-analyzer/"
+        },
+        {
+          "name": "AWS Interconnect",
+          "url": "https://aws.amazon.com/interconnect/"
         },
         {
           "name": "AWS Key Management Service (KMS)",
@@ -11268,7 +11272,7 @@
       },
       "partition": "aws",
       "regionLongName": "Canada (Central)",
-      "serviceCount": 185,
+      "serviceCount": 186,
       "services": [
         {
           "name": "AD Connector",
@@ -11505,6 +11509,10 @@
         {
           "name": "AWS Outposts",
           "url": "https://aws.amazon.com/outposts/"
+        },
+        {
+          "name": "AWS Parallel Computing Service (PCS)",
+          "url": "https://aws.amazon.com/pcs/"
         },
         {
           "name": "AWS Payment Cryptography",
@@ -28696,7 +28704,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-10-29T05:49:45Z",
+  "retrievedAt": "2026-10-29T22:45:47Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28717,10 +28725,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-10-29-02-07-05",
+      "createdAt": "2026-10-29-12-47-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1793239625"
+      "version": "1793278025"
     }
   ]
 }
