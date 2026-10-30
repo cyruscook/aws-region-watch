@@ -6206,7 +6206,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "ap-southeast-1",
       "network": {
-        "ipv4PrefixCount": 411,
+        "ipv4PrefixCount": 413,
         "ipv6PrefixCount": 278,
         "networkBorderGroups": [
           "ap-southeast-1",
@@ -12900,7 +12900,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "eu-central-1",
       "network": {
-        "ipv4PrefixCount": 577,
+        "ipv4PrefixCount": 580,
         "ipv6PrefixCount": 399,
         "networkBorderGroups": [
           "eu-central-1",
@@ -16759,7 +16759,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "eu-west-1",
       "network": {
-        "ipv4PrefixCount": 533,
+        "ipv4PrefixCount": 535,
         "ipv6PrefixCount": 224,
         "networkBorderGroups": [
           "eu-west-1"
@@ -23390,7 +23390,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-east-1",
       "network": {
-        "ipv4PrefixCount": 1492,
+        "ipv4PrefixCount": 1504,
         "ipv6PrefixCount": 610,
         "networkBorderGroups": [
           "us-east-1",
@@ -27093,7 +27093,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-west-1",
       "network": {
-        "ipv4PrefixCount": 570,
+        "ipv4PrefixCount": 572,
         "ipv6PrefixCount": 173,
         "networkBorderGroups": [
           "us-west-1"
@@ -27848,7 +27848,7 @@
       "id": "us-west-2",
       "network": {
         "ipv4PrefixCount": 664,
-        "ipv6PrefixCount": 685,
+        "ipv6PrefixCount": 691,
         "networkBorderGroups": [
           "us-west-2",
           "us-west-2-den-1",
@@ -28704,7 +28704,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-10-29T22:45:47Z",
+  "retrievedAt": "2026-10-30T05:50:34Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28725,10 +28725,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-10-29-12-47-05",
+      "createdAt": "2026-10-30-01-47-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1793278025"
+      "version": "1793324825"
     }
   ]
 }
