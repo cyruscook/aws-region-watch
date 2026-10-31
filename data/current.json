@@ -6207,7 +6207,7 @@
       "id": "ap-southeast-1",
       "network": {
         "ipv4PrefixCount": 416,
-        "ipv6PrefixCount": 278,
+        "ipv6PrefixCount": 280,
         "networkBorderGroups": [
           "ap-southeast-1",
           "ap-southeast-1-bkk-1",
@@ -12901,7 +12901,7 @@
       "id": "eu-central-1",
       "network": {
         "ipv4PrefixCount": 581,
-        "ipv6PrefixCount": 399,
+        "ipv6PrefixCount": 401,
         "networkBorderGroups": [
           "eu-central-1",
           "eu-central-1-ath-1",
@@ -16760,7 +16760,7 @@
       "id": "eu-west-1",
       "network": {
         "ipv4PrefixCount": 535,
-        "ipv6PrefixCount": 224,
+        "ipv6PrefixCount": 226,
         "networkBorderGroups": [
           "eu-west-1"
         ],
@@ -19336,7 +19336,7 @@
       },
       "partition": "aws-eusc",
       "regionLongName": "AWS European Sovereign Cloud (Germany)",
-      "serviceCount": 106,
+      "serviceCount": 107,
       "services": [
         {
           "name": "AD Connector",
@@ -19377,6 +19377,10 @@
         {
           "name": "AWS CodeDeploy",
           "url": "https://aws.amazon.com/codedeploy/"
+        },
+        {
+          "name": "AWS CodePipeline",
+          "url": "https://aws.amazon.com/codepipeline/"
         },
         {
           "name": "AWS Config",
@@ -23391,7 +23395,7 @@
       "id": "us-east-1",
       "network": {
         "ipv4PrefixCount": 1509,
-        "ipv6PrefixCount": 610,
+        "ipv6PrefixCount": 622,
         "networkBorderGroups": [
           "us-east-1",
           "us-east-1-abe-1",
@@ -27094,7 +27098,7 @@
       "id": "us-west-1",
       "network": {
         "ipv4PrefixCount": 572,
-        "ipv6PrefixCount": 173,
+        "ipv6PrefixCount": 175,
         "networkBorderGroups": [
           "us-west-1"
         ],
@@ -28704,7 +28708,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-10-30T22:21:09Z",
+  "retrievedAt": "2026-10-31T05:43:03Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28725,10 +28729,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-10-30-18-27-05",
+      "createdAt": "2026-10-30-20-47-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1793384825"
+      "version": "1793393225"
     }
   ]
 }
