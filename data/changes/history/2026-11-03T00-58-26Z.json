@@ -1,0 +1,12 @@
+{
+  "addedPartitions": [],
+  "addedRegions": [],
+  "changed": true,
+  "changedPartitions": [],
+  "changedRegions": [
+    "eusc-de-east-1"
+  ],
+  "removedPartitions": [],
+  "removedRegions": [],
+  "retrievedAt": "2026-11-03T00:58:26Z"
+}

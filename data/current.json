@@ -19336,7 +19336,7 @@
       },
       "partition": "aws-eusc",
       "regionLongName": "AWS European Sovereign Cloud (Germany)",
-      "serviceCount": 107,
+      "serviceCount": 108,
       "services": [
         {
           "name": "AD Connector",
@@ -19373,6 +19373,10 @@
         {
           "name": "AWS CloudTrail",
           "url": "https://aws.amazon.com/cloudtrail/"
+        },
+        {
+          "name": "AWS CodeBuild",
+          "url": "https://aws.amazon.com/codebuild/"
         },
         {
           "name": "AWS CodeDeploy",
@@ -28708,7 +28712,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-02T15:55:03Z",
+  "retrievedAt": "2026-11-03T00:58:26Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28729,10 +28733,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-02-09-27-05",
+      "createdAt": "2026-11-02-17-27-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1793611625"
+      "version": "1793640425"
     }
   ]
 }
