@@ -4677,7 +4677,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "ap-south-1",
       "network": {
-        "ipv4PrefixCount": 302,
+        "ipv4PrefixCount": 304,
         "ipv6PrefixCount": 161,
         "networkBorderGroups": [
           "ap-south-1",
@@ -7967,7 +7967,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "ap-southeast-3",
       "network": {
-        "ipv4PrefixCount": 115,
+        "ipv4PrefixCount": 113,
         "ipv6PrefixCount": 96,
         "networkBorderGroups": [
           "ap-southeast-3"
@@ -11272,7 +11272,7 @@
       },
       "partition": "aws",
       "regionLongName": "Canada (Central)",
-      "serviceCount": 186,
+      "serviceCount": 185,
       "services": [
         {
           "name": "AD Connector",
@@ -11301,10 +11301,6 @@
         {
           "name": "AWS Audit Manager",
           "url": "https://aws.amazon.com/audit-manager/"
-        },
-        {
-          "name": "AWS B2B Data Interchange",
-          "url": "https://aws.amazon.com/b2b-data-interchange/"
         },
         {
           "name": "AWS Backup",
@@ -16801,7 +16797,7 @@
       },
       "partition": "aws",
       "regionLongName": "Europe (Ireland)",
-      "serviceCount": 192,
+      "serviceCount": 191,
       "services": [
         {
           "name": "AD Connector",
@@ -16834,10 +16830,6 @@
         {
           "name": "AWS Audit Manager",
           "url": "https://aws.amazon.com/audit-manager/"
-        },
-        {
-          "name": "AWS B2B Data Interchange",
-          "url": "https://aws.amazon.com/b2b-data-interchange/"
         },
         {
           "name": "AWS Backup",
@@ -23398,8 +23390,8 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-east-1",
       "network": {
-        "ipv4PrefixCount": 1509,
-        "ipv6PrefixCount": 622,
+        "ipv4PrefixCount": 1513,
+        "ipv6PrefixCount": 624,
         "networkBorderGroups": [
           "us-east-1",
           "us-east-1-abe-1",
@@ -23477,7 +23469,7 @@
       },
       "partition": "aws",
       "regionLongName": "US East (N. Virginia)",
-      "serviceCount": 199,
+      "serviceCount": 198,
       "services": [
         {
           "name": "AD Connector",
@@ -23510,10 +23502,6 @@
         {
           "name": "AWS Audit Manager",
           "url": "https://aws.amazon.com/audit-manager/"
-        },
-        {
-          "name": "AWS B2B Data Interchange",
-          "url": "https://aws.amazon.com/b2b-data-interchange/"
         },
         {
           "name": "AWS Backup",
@@ -24345,7 +24333,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-east-2",
       "network": {
-        "ipv4PrefixCount": 549,
+        "ipv4PrefixCount": 551,
         "ipv6PrefixCount": 298,
         "networkBorderGroups": [
           "us-east-2",
@@ -24387,7 +24375,7 @@
       },
       "partition": "aws",
       "regionLongName": "US East (Ohio)",
-      "serviceCount": 189,
+      "serviceCount": 188,
       "services": [
         {
           "name": "AD Connector",
@@ -24420,10 +24408,6 @@
         {
           "name": "AWS Audit Manager",
           "url": "https://aws.amazon.com/audit-manager/"
-        },
-        {
-          "name": "AWS B2B Data Interchange",
-          "url": "https://aws.amazon.com/b2b-data-interchange/"
         },
         {
           "name": "AWS Backup",
@@ -27855,8 +27839,8 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-west-2",
       "network": {
-        "ipv4PrefixCount": 666,
-        "ipv6PrefixCount": 691,
+        "ipv4PrefixCount": 668,
+        "ipv6PrefixCount": 693,
         "networkBorderGroups": [
           "us-west-2",
           "us-west-2-den-1",
@@ -27916,7 +27900,7 @@
       },
       "partition": "aws",
       "regionLongName": "US West (Oregon)",
-      "serviceCount": 195,
+      "serviceCount": 194,
       "services": [
         {
           "name": "AD Connector",
@@ -27949,10 +27933,6 @@
         {
           "name": "AWS Audit Manager",
           "url": "https://aws.amazon.com/audit-manager/"
-        },
-        {
-          "name": "AWS B2B Data Interchange",
-          "url": "https://aws.amazon.com/b2b-data-interchange/"
         },
         {
           "name": "AWS Backup",
@@ -28712,7 +28692,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-03T14:16:40Z",
+  "retrievedAt": "2026-11-03T23:24:39Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28733,10 +28713,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-03-11-27-05",
+      "createdAt": "2026-11-03-20-47-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1793705225"
+      "version": "1793738825"
     }
   ]
 }
