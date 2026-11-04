@@ -5,9 +5,9 @@
   "changedPartitions": [],
   "changedRegions": [
     "ap-southeast-3",
-    "ap-southeast-7"
+    "cn-north-1"
   ],
   "removedPartitions": [],
   "removedRegions": [],
-  "retrievedAt": "2026-11-04T06:23:48Z"
+  "retrievedAt": "2026-11-04T19:45:46Z"
 }
