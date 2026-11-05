@@ -1672,7 +1672,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Taipei)",
-      "serviceCount": 119,
+      "serviceCount": 120,
       "services": [
         {
           "name": "AD Connector",
@@ -1937,6 +1937,10 @@
         {
           "name": "Amazon Data Firehose",
           "url": "https://aws.amazon.com/firehose/"
+        },
+        {
+          "name": "Amazon DocumentDB (with MongoDB compatibility)",
+          "url": "https://aws.amazon.com/documentdb/"
         },
         {
           "name": "Amazon DynamoDB",
@@ -7967,7 +7971,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "ap-southeast-3",
       "network": {
-        "ipv4PrefixCount": 113,
+        "ipv4PrefixCount": 115,
         "ipv6PrefixCount": 96,
         "networkBorderGroups": [
           "ap-southeast-3"
@@ -10038,7 +10042,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (New Zealand)",
-      "serviceCount": 123,
+      "serviceCount": 125,
       "services": [
         {
           "name": "AD Connector",
@@ -10167,6 +10171,10 @@
         {
           "name": "AWS Identity and Access Management (IAM) Access Analyzer",
           "url": "https://aws.amazon.com/iam/access-analyzer/"
+        },
+        {
+          "name": "AWS Interconnect",
+          "url": "https://aws.amazon.com/interconnect/"
         },
         {
           "name": "AWS Key Management Service (KMS)",
@@ -10327,6 +10335,10 @@
         {
           "name": "Amazon Data Firehose",
           "url": "https://aws.amazon.com/firehose/"
+        },
+        {
+          "name": "Amazon DocumentDB (with MongoDB compatibility)",
+          "url": "https://aws.amazon.com/documentdb/"
         },
         {
           "name": "Amazon DynamoDB",
@@ -11272,7 +11284,7 @@
       },
       "partition": "aws",
       "regionLongName": "Canada (Central)",
-      "serviceCount": 185,
+      "serviceCount": 186,
       "services": [
         {
           "name": "AD Connector",
@@ -11301,6 +11313,10 @@
         {
           "name": "AWS Audit Manager",
           "url": "https://aws.amazon.com/audit-manager/"
+        },
+        {
+          "name": "AWS B2B Data Interchange",
+          "url": "https://aws.amazon.com/b2b-data-interchange/"
         },
         {
           "name": "AWS Backup",
@@ -16797,7 +16813,7 @@
       },
       "partition": "aws",
       "regionLongName": "Europe (Ireland)",
-      "serviceCount": 191,
+      "serviceCount": 192,
       "services": [
         {
           "name": "AD Connector",
@@ -16830,6 +16846,10 @@
         {
           "name": "AWS Audit Manager",
           "url": "https://aws.amazon.com/audit-manager/"
+        },
+        {
+          "name": "AWS B2B Data Interchange",
+          "url": "https://aws.amazon.com/b2b-data-interchange/"
         },
         {
           "name": "AWS Backup",
@@ -19328,7 +19348,7 @@
       },
       "partition": "aws-eusc",
       "regionLongName": "AWS European Sovereign Cloud (Germany)",
-      "serviceCount": 108,
+      "serviceCount": 109,
       "services": [
         {
           "name": "AD Connector",
@@ -19733,6 +19753,10 @@
         {
           "name": "Amazon Simple Workflow Service (SWF)",
           "url": "https://aws.amazon.com/swf/"
+        },
+        {
+          "name": "Amazon Verified Permissions",
+          "url": "https://aws.amazon.com/verified-permissions/"
         },
         {
           "name": "Amazon Virtual Private Cloud (VPC)",
@@ -23469,7 +23493,7 @@
       },
       "partition": "aws",
       "regionLongName": "US East (N. Virginia)",
-      "serviceCount": 198,
+      "serviceCount": 199,
       "services": [
         {
           "name": "AD Connector",
@@ -23502,6 +23526,10 @@
         {
           "name": "AWS Audit Manager",
           "url": "https://aws.amazon.com/audit-manager/"
+        },
+        {
+          "name": "AWS B2B Data Interchange",
+          "url": "https://aws.amazon.com/b2b-data-interchange/"
         },
         {
           "name": "AWS Backup",
@@ -24375,7 +24403,7 @@
       },
       "partition": "aws",
       "regionLongName": "US East (Ohio)",
-      "serviceCount": 188,
+      "serviceCount": 189,
       "services": [
         {
           "name": "AD Connector",
@@ -24408,6 +24436,10 @@
         {
           "name": "AWS Audit Manager",
           "url": "https://aws.amazon.com/audit-manager/"
+        },
+        {
+          "name": "AWS B2B Data Interchange",
+          "url": "https://aws.amazon.com/b2b-data-interchange/"
         },
         {
           "name": "AWS Backup",
@@ -27900,7 +27932,7 @@
       },
       "partition": "aws",
       "regionLongName": "US West (Oregon)",
-      "serviceCount": 194,
+      "serviceCount": 195,
       "services": [
         {
           "name": "AD Connector",
@@ -27933,6 +27965,10 @@
         {
           "name": "AWS Audit Manager",
           "url": "https://aws.amazon.com/audit-manager/"
+        },
+        {
+          "name": "AWS B2B Data Interchange",
+          "url": "https://aws.amazon.com/b2b-data-interchange/"
         },
         {
           "name": "AWS Backup",
@@ -28692,7 +28728,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-04T19:45:46Z",
+  "retrievedAt": "2026-11-05T06:47:46Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28713,10 +28749,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-04-16-47-05",
+      "createdAt": "2026-11-05-03-17-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1793810825"
+      "version": "1793848625"
     }
   ]
 }
