@@ -7971,7 +7971,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "ap-southeast-3",
       "network": {
-        "ipv4PrefixCount": 113,
+        "ipv4PrefixCount": 115,
         "ipv6PrefixCount": 96,
         "networkBorderGroups": [
           "ap-southeast-3"
@@ -12913,7 +12913,7 @@
       "id": "eu-central-1",
       "network": {
         "ipv4PrefixCount": 581,
-        "ipv6PrefixCount": 401,
+        "ipv6PrefixCount": 403,
         "networkBorderGroups": [
           "eu-central-1",
           "eu-central-1-ath-1",
@@ -14533,7 +14533,7 @@
       "id": "eu-north-1",
       "network": {
         "ipv4PrefixCount": 211,
-        "ipv6PrefixCount": 191,
+        "ipv6PrefixCount": 192,
         "networkBorderGroups": [
           "eu-north-1",
           "eu-north-1-cph-1",
@@ -19348,7 +19348,7 @@
       },
       "partition": "aws-eusc",
       "regionLongName": "AWS European Sovereign Cloud (Germany)",
-      "serviceCount": 109,
+      "serviceCount": 110,
       "services": [
         {
           "name": "AD Connector",
@@ -19753,6 +19753,10 @@
         {
           "name": "Amazon Simple Workflow Service (SWF)",
           "url": "https://aws.amazon.com/swf/"
+        },
+        {
+          "name": "Amazon Transcribe",
+          "url": "https://aws.amazon.com/transcribe/"
         },
         {
           "name": "Amazon Verified Permissions",
@@ -25921,7 +25925,7 @@
       "developmentDomain": "aws-dev.amazonaws-us-gov.com",
       "id": "us-gov-west-1",
       "network": {
-        "ipv4PrefixCount": 137,
+        "ipv4PrefixCount": 138,
         "ipv6PrefixCount": 104,
         "networkBorderGroups": [
           "us-gov-west-1"
@@ -27118,7 +27122,7 @@
       "id": "us-west-1",
       "network": {
         "ipv4PrefixCount": 574,
-        "ipv6PrefixCount": 175,
+        "ipv6PrefixCount": 177,
         "networkBorderGroups": [
           "us-west-1"
         ],
@@ -28728,7 +28732,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-05T19:57:50Z",
+  "retrievedAt": "2026-11-06T06:48:19Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28749,10 +28753,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-05-17-17-05",
+      "createdAt": "2026-11-06-03-07-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1793899025"
+      "version": "1793934425"
     }
   ]
 }

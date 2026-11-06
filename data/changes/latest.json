@@ -5,9 +5,13 @@
   "changedPartitions": [],
   "changedRegions": [
     "ap-southeast-3",
-    "us-east-1"
+    "eu-central-1",
+    "eu-north-1",
+    "eusc-de-east-1",
+    "us-gov-west-1",
+    "us-west-1"
   ],
   "removedPartitions": [],
   "removedRegions": [],
-  "retrievedAt": "2026-11-05T19:57:50Z"
+  "retrievedAt": "2026-11-06T06:48:19Z"
 }
