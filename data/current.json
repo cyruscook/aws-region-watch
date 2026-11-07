@@ -1646,7 +1646,7 @@
       "id": "ap-east-2",
       "network": {
         "ipv4PrefixCount": 68,
-        "ipv6PrefixCount": 82,
+        "ipv6PrefixCount": 84,
         "networkBorderGroups": [
           "ap-east-2"
         ],
@@ -10014,7 +10014,7 @@
       "id": "ap-southeast-6",
       "network": {
         "ipv4PrefixCount": 62,
-        "ipv6PrefixCount": 82,
+        "ipv6PrefixCount": 84,
         "networkBorderGroups": [
           "ap-southeast-6"
         ],
@@ -21873,6 +21873,7 @@
         "polaroid": false,
         "sts": true
       },
+      "description": "Middle East (Saudi Arabia)",
       "developmentDomain": "aws-dev.amazon.com",
       "id": "me-west-1",
       "network": {
@@ -21971,7 +21972,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "mx-central-1",
       "network": {
-        "ipv4PrefixCount": 67,
+        "ipv4PrefixCount": 68,
         "ipv6PrefixCount": 83,
         "networkBorderGroups": [
           "mx-central-1"
@@ -23317,6 +23318,7 @@
         "polaroid": false,
         "sts": true
       },
+      "description": "South America (Chile)",
       "developmentDomain": "aws-dev.amazon.com",
       "id": "sa-west-1",
       "network": {
@@ -25959,7 +25961,7 @@
       },
       "partition": "aws-us-gov",
       "regionLongName": "AWS GovCloud (US-West)",
-      "serviceCount": 161,
+      "serviceCount": 162,
       "services": [
         {
           "name": "AD Connector",
@@ -26276,6 +26278,10 @@
         {
           "name": "Amazon Bedrock AgentCore",
           "url": "https://aws.amazon.com/bedrock/agentcore/"
+        },
+        {
+          "name": "Amazon Bedrock AgentCore Registry",
+          "url": "https://docs.aws.amazon.com/agent-registry/"
         },
         {
           "name": "Amazon Chime SDK",
@@ -28732,7 +28738,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-06T06:48:19Z",
+  "retrievedAt": "2026-11-07T05:59:06Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28753,10 +28759,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-06-03-07-05",
+      "createdAt": "2026-11-07-03-07-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1793934425"
+      "version": "1794020825"
     }
   ]
 }
