@@ -1,0 +1,12 @@
+{
+  "addedPartitions": [],
+  "addedRegions": [],
+  "changed": true,
+  "changedPartitions": [],
+  "changedRegions": [
+    "us-gov-west-1"
+  ],
+  "removedPartitions": [],
+  "removedRegions": [],
+  "retrievedAt": "2026-11-09T06:31:37Z"
+}
