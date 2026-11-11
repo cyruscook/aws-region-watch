@@ -7991,7 +7991,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "ap-southeast-3",
       "network": {
-        "ipv4PrefixCount": 113,
+        "ipv4PrefixCount": 115,
         "ipv6PrefixCount": 96,
         "networkBorderGroups": [
           "ap-southeast-3"
@@ -13847,7 +13847,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "eu-central-2",
       "network": {
-        "ipv4PrefixCount": 81,
+        "ipv4PrefixCount": 83,
         "ipv6PrefixCount": 88,
         "networkBorderGroups": [
           "eu-central-2"
@@ -21937,7 +21937,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "me-west-1",
       "network": {
-        "ipv4PrefixCount": 47,
+        "ipv4PrefixCount": 49,
         "ipv6PrefixCount": 74,
         "networkBorderGroups": [
           "me-west-1"
@@ -22674,7 +22674,7 @@
       },
       "partition": "aws",
       "regionLongName": "South America (Sao Paulo)",
-      "serviceCount": 171,
+      "serviceCount": 172,
       "services": [
         {
           "name": "AD Connector",
@@ -22883,6 +22883,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -25295,7 +25299,7 @@
       "developmentDomain": "aws-dev.amazonaws-us-gov.com",
       "id": "us-gov-east-1",
       "network": {
-        "ipv4PrefixCount": 104,
+        "ipv4PrefixCount": 105,
         "ipv6PrefixCount": 95,
         "networkBorderGroups": [
           "us-gov-east-1"
@@ -27098,7 +27102,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-south-1",
       "network": {
-        "ipv4PrefixCount": 65,
+        "ipv4PrefixCount": 66,
         "ipv6PrefixCount": 94,
         "networkBorderGroups": [
           "us-south-1"
@@ -28806,7 +28810,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-10T19:44:37Z",
+  "retrievedAt": "2026-11-11T06:22:35Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28827,10 +28831,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-10-16-47-05",
+      "createdAt": "2026-11-11-03-27-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1794329225"
+      "version": "1794367625"
     }
   ]
 }
