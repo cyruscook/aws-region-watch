@@ -7991,7 +7991,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "ap-southeast-3",
       "network": {
-        "ipv4PrefixCount": 115,
+        "ipv4PrefixCount": 113,
         "ipv6PrefixCount": 96,
         "networkBorderGroups": [
           "ap-southeast-3"
@@ -23488,7 +23488,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-east-1",
       "network": {
-        "ipv4PrefixCount": 1514,
+        "ipv4PrefixCount": 1516,
         "ipv6PrefixCount": 632,
         "networkBorderGroups": [
           "us-east-1",
@@ -28810,7 +28810,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-11T06:22:35Z",
+  "retrievedAt": "2026-11-11T19:36:52Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28831,10 +28831,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-11-03-27-05",
+      "createdAt": "2026-11-11-17-27-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1794367625"
+      "version": "1794418025"
     }
   ]
 }
