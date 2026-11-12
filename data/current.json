@@ -19374,7 +19374,7 @@
       "developmentDomain": "aws-dev.amazonaws-eusc.eu",
       "id": "eusc-de-east-1",
       "network": {
-        "ipv4PrefixCount": 86,
+        "ipv4PrefixCount": 87,
         "ipv6PrefixCount": 86,
         "networkBorderGroups": [
           "eusc-de-east-1"
@@ -28818,7 +28818,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-12T07:12:00Z",
+  "retrievedAt": "2026-11-12T19:55:06Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28839,10 +28839,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-12-04-47-06",
+      "createdAt": "2026-11-12-17-37-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1794458826"
+      "version": "1794505025"
     }
   ]
 }
