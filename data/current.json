@@ -23567,7 +23567,7 @@
       },
       "partition": "aws",
       "regionLongName": "US East (N. Virginia)",
-      "serviceCount": 199,
+      "serviceCount": 200,
       "services": [
         {
           "name": "AD Connector",
@@ -23728,6 +23728,10 @@
         {
           "name": "AWS Elemental MediaTailor",
           "url": "https://aws.amazon.com/mediatailor/"
+        },
+        {
+          "name": "AWS Emulator",
+          "url": "https://aws.amazon.com/products/developer-tools/emulator/"
         },
         {
           "name": "AWS End User Messaging",
@@ -25299,7 +25303,7 @@
       "developmentDomain": "aws-dev.amazonaws-us-gov.com",
       "id": "us-gov-east-1",
       "network": {
-        "ipv4PrefixCount": 105,
+        "ipv4PrefixCount": 106,
         "ipv6PrefixCount": 95,
         "networkBorderGroups": [
           "us-gov-east-1"
@@ -27233,7 +27237,7 @@
       },
       "partition": "aws",
       "regionLongName": "US West (N. California)",
-      "serviceCount": 161,
+      "serviceCount": 162,
       "services": [
         {
           "name": "AD Connector",
@@ -27450,6 +27454,10 @@
         {
           "name": "AWS Outposts",
           "url": "https://aws.amazon.com/outposts/"
+        },
+        {
+          "name": "AWS Parallel Computing Service (PCS)",
+          "url": "https://aws.amazon.com/pcs/"
         },
         {
           "name": "AWS Private Certificate Authority",
@@ -28810,7 +28818,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-11T19:36:52Z",
+  "retrievedAt": "2026-11-12T07:12:00Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28831,10 +28839,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-11-17-27-05",
+      "createdAt": "2026-11-12-04-47-06",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1794418025"
+      "version": "1794458826"
     }
   ]
 }
