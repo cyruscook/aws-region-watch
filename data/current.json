@@ -6230,8 +6230,8 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "ap-southeast-1",
       "network": {
-        "ipv4PrefixCount": 418,
-        "ipv6PrefixCount": 280,
+        "ipv4PrefixCount": 416,
+        "ipv6PrefixCount": 278,
         "networkBorderGroups": [
           "ap-southeast-1",
           "ap-southeast-1-bkk-1",
@@ -9361,7 +9361,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Malaysia)",
-      "serviceCount": 153,
+      "serviceCount": 154,
       "services": [
         {
           "name": "AD Connector",
@@ -9926,6 +9926,10 @@
         {
           "name": "Amazon Simple Workflow Service (SWF)",
           "url": "https://aws.amazon.com/swf/"
+        },
+        {
+          "name": "Amazon Transcribe",
+          "url": "https://aws.amazon.com/transcribe/"
         },
         {
           "name": "Amazon VPC Lattice",
@@ -10675,7 +10679,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Thailand)",
-      "serviceCount": 132,
+      "serviceCount": 133,
       "services": [
         {
           "name": "AD Connector",
@@ -11168,6 +11172,10 @@
         {
           "name": "Amazon Simple Workflow Service (SWF)",
           "url": "https://aws.amazon.com/swf/"
+        },
+        {
+          "name": "Amazon Transcribe",
+          "url": "https://aws.amazon.com/transcribe/"
         },
         {
           "name": "Amazon Verified Permissions",
@@ -12952,8 +12960,8 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "eu-central-1",
       "network": {
-        "ipv4PrefixCount": 581,
-        "ipv6PrefixCount": 403,
+        "ipv4PrefixCount": 579,
+        "ipv6PrefixCount": 401,
         "networkBorderGroups": [
           "eu-central-1",
           "eu-central-1-ath-1",
@@ -16819,8 +16827,8 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "eu-west-1",
       "network": {
-        "ipv4PrefixCount": 537,
-        "ipv6PrefixCount": 226,
+        "ipv4PrefixCount": 535,
+        "ipv6PrefixCount": 224,
         "networkBorderGroups": [
           "eu-west-1"
         ],
@@ -22060,7 +22068,7 @@
       },
       "partition": "aws",
       "regionLongName": "Mexico (Central)",
-      "serviceCount": 125,
+      "serviceCount": 126,
       "services": [
         {
           "name": "AD Connector",
@@ -22521,6 +22529,10 @@
         {
           "name": "Amazon Simple Workflow Service (SWF)",
           "url": "https://aws.amazon.com/swf/"
+        },
+        {
+          "name": "Amazon Transcribe",
+          "url": "https://aws.amazon.com/transcribe/"
         },
         {
           "name": "Amazon VPC Lattice",
@@ -23488,8 +23500,8 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-east-1",
       "network": {
-        "ipv4PrefixCount": 1518,
-        "ipv6PrefixCount": 634,
+        "ipv4PrefixCount": 1506,
+        "ipv6PrefixCount": 622,
         "networkBorderGroups": [
           "us-east-1",
           "us-east-1-abe-1",
@@ -24439,7 +24451,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-east-2",
       "network": {
-        "ipv4PrefixCount": 551,
+        "ipv4PrefixCount": 560,
         "ipv6PrefixCount": 296,
         "networkBorderGroups": [
           "us-east-2",
@@ -27199,8 +27211,8 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-west-1",
       "network": {
-        "ipv4PrefixCount": 574,
-        "ipv6PrefixCount": 177,
+        "ipv4PrefixCount": 572,
+        "ipv6PrefixCount": 175,
         "networkBorderGroups": [
           "us-west-1"
         ],
@@ -27961,7 +27973,7 @@
       "developmentDomain": "aws-dev.amazon.com",
       "id": "us-west-2",
       "network": {
-        "ipv4PrefixCount": 668,
+        "ipv4PrefixCount": 669,
         "ipv6PrefixCount": 697,
         "networkBorderGroups": [
           "us-west-2",
@@ -28818,7 +28830,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-13T19:43:00Z",
+  "retrievedAt": "2026-11-14T06:24:30Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28839,10 +28851,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-13-17-37-05",
+      "createdAt": "2026-11-13-22-17-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1794591425"
+      "version": "1794608225"
     }
   ]
 }
