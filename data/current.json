@@ -26045,7 +26045,7 @@
       },
       "partition": "aws-us-gov",
       "regionLongName": "AWS GovCloud (US-West)",
-      "serviceCount": 162,
+      "serviceCount": 163,
       "services": [
         {
           "name": "AD Connector",
@@ -26134,6 +26134,10 @@
         {
           "name": "AWS Database Migration Service (AWS DMS)",
           "url": "https://aws.amazon.com/dms/"
+        },
+        {
+          "name": "AWS DevOps Agent",
+          "url": "https://aws.amazon.com/devops-agent/"
         },
         {
           "name": "AWS Direct Connect",
@@ -28830,7 +28834,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-14T22:24:56Z",
+  "retrievedAt": "2026-11-15T06:33:17Z",
   "schemaVersion": 1,
   "sources": [
     {
