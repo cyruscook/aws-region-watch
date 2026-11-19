@@ -245,7 +245,7 @@
       },
       "partition": "aws",
       "regionLongName": "Africa (Cape Town)",
-      "serviceCount": 156,
+      "serviceCount": 157,
       "services": [
         {
           "name": "AD Connector",
@@ -406,6 +406,10 @@
         {
           "name": "AWS Identity and Access Management (IAM) Access Analyzer",
           "url": "https://aws.amazon.com/iam/access-analyzer/"
+        },
+        {
+          "name": "AWS Interconnect",
+          "url": "https://aws.amazon.com/interconnect/"
         },
         {
           "name": "AWS Key Management Service (KMS)",
@@ -12768,7 +12772,7 @@
       "developmentDomain": "aws-dev.amazonaws.cn",
       "id": "cn-north-1",
       "network": {
-        "ipv4PrefixCount": 140,
+        "ipv4PrefixCount": 142,
         "ipv6PrefixCount": 84,
         "networkBorderGroups": [
           "cn-north-1"
@@ -12859,7 +12863,7 @@
       "developmentDomain": "aws-dev.amazonaws.cn",
       "id": "cn-northwest-1",
       "network": {
-        "ipv4PrefixCount": 127,
+        "ipv4PrefixCount": 129,
         "ipv6PrefixCount": 86,
         "networkBorderGroups": [
           "cn-northwest-1"
@@ -28838,7 +28842,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-18T20:32:01Z",
+  "retrievedAt": "2026-11-19T07:27:24Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28859,10 +28863,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-18-17-47-05",
+      "createdAt": "2026-11-19-00-57-06",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1795024025"
+      "version": "1795049826"
     }
   ]
 }
