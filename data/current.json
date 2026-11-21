@@ -245,7 +245,7 @@
       },
       "partition": "aws",
       "regionLongName": "Africa (Cape Town)",
-      "serviceCount": 156,
+      "serviceCount": 157,
       "services": [
         {
           "name": "AD Connector",
@@ -436,6 +436,10 @@
           "url": "https://aws.amazon.com/network-firewall/"
         },
         {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
+        },
+        {
           "name": "AWS Organizations",
           "url": "https://aws.amazon.com/organizations"
         },
@@ -458,6 +462,10 @@
         {
           "name": "AWS PrivateLink",
           "url": "https://aws.amazon.com/privatelink/"
+        },
+        {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "AWS Resilience Hub",
@@ -742,10 +750,6 @@
         {
           "name": "Amazon OpenSearch Service",
           "url": "https://aws.amazon.com/opensearch-service/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for SQL Server",
@@ -2563,6 +2567,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -2905,10 +2913,6 @@
         {
           "name": "Amazon Personalize",
           "url": "https://aws.amazon.com/personalize/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -3430,6 +3434,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -3756,10 +3764,6 @@
         {
           "name": "Amazon Personalize",
           "url": "https://aws.amazon.com/personalize/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -5002,6 +5006,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -5322,10 +5330,6 @@
           "url": "https://aws.amazon.com/personalize/"
         },
         {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
-        },
-        {
           "name": "Amazon RDS Custom for Oracle",
           "url": "https://aws.amazon.com/rds/custom/"
         },
@@ -5582,7 +5586,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (Hyderabad)",
-      "serviceCount": 143,
+      "serviceCount": 144,
       "services": [
         {
           "name": "AD Connector",
@@ -5763,6 +5767,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -6546,6 +6554,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -6880,10 +6892,6 @@
         {
           "name": "Amazon Personalize",
           "url": "https://aws.amazon.com/personalize/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -7418,6 +7426,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -7756,10 +7768,6 @@
         {
           "name": "Amazon Q Business",
           "url": "https://aws.amazon.com/q/business/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -8211,6 +8219,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resource Access Manager (RAM)",
           "url": "https://aws.amazon.com/ram/"
         },
@@ -8465,10 +8477,6 @@
         {
           "name": "Amazon OpenSearch Service",
           "url": "https://aws.amazon.com/opensearch-service/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -9580,6 +9588,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resource Access Manager (RAM)",
           "url": "https://aws.amazon.com/ram/"
         },
@@ -9848,10 +9860,6 @@
           "url": "https://aws.amazon.com/opensearch-service/"
         },
         {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
-        },
-        {
           "name": "Amazon RDS for Db2",
           "url": "https://aws.amazon.com/rds/db2/"
         },
@@ -10070,7 +10078,7 @@
       },
       "partition": "aws",
       "regionLongName": "Asia Pacific (New Zealand)",
-      "serviceCount": 125,
+      "serviceCount": 126,
       "services": [
         {
           "name": "AD Connector",
@@ -10223,6 +10231,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -11316,7 +11328,7 @@
       },
       "partition": "aws",
       "regionLongName": "Canada (Central)",
-      "serviceCount": 186,
+      "serviceCount": 187,
       "services": [
         {
           "name": "AD Connector",
@@ -11547,6 +11559,10 @@
           "url": "https://aws.amazon.com/network-firewall/"
         },
         {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
+        },
+        {
           "name": "AWS Organizations",
           "url": "https://aws.amazon.com/organizations"
         },
@@ -11569,6 +11585,10 @@
         {
           "name": "AWS PrivateLink",
           "url": "https://aws.amazon.com/privatelink/"
+        },
+        {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "AWS Resilience Hub",
@@ -11901,10 +11921,6 @@
         {
           "name": "Amazon Personalize",
           "url": "https://aws.amazon.com/personalize/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -13270,6 +13286,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -13608,10 +13628,6 @@
         {
           "name": "Amazon Q Developer",
           "url": "https://aws.amazon.com/q/developer/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -14065,6 +14081,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resource Access Manager (RAM)",
           "url": "https://aws.amazon.com/ram/"
         },
@@ -14319,10 +14339,6 @@
         {
           "name": "Amazon OpenSearch Service",
           "url": "https://aws.amazon.com/opensearch-service/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS for Db2",
@@ -14858,6 +14874,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -15160,10 +15180,6 @@
         {
           "name": "Amazon OpenSearch Service",
           "url": "https://aws.amazon.com/opensearch-service/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -15621,6 +15637,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -15895,10 +15915,6 @@
         {
           "name": "Amazon OpenSearch Service",
           "url": "https://aws.amazon.com/opensearch-service/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -16334,6 +16350,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resource Access Manager (RAM)",
           "url": "https://aws.amazon.com/ram/"
         },
@@ -16612,10 +16632,6 @@
         {
           "name": "Amazon OpenSearch Service",
           "url": "https://aws.amazon.com/opensearch-service/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS for Db2",
@@ -17132,6 +17148,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -17466,10 +17486,6 @@
         {
           "name": "Amazon Q Business",
           "url": "https://aws.amazon.com/q/business/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -18002,6 +18018,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -18346,10 +18366,6 @@
           "url": "https://aws.amazon.com/opensearch-service/"
         },
         {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
-        },
-        {
           "name": "Amazon RDS Custom for Oracle",
           "url": "https://aws.amazon.com/rds/custom/"
         },
@@ -18616,7 +18632,7 @@
       },
       "partition": "aws",
       "regionLongName": "Europe (Paris)",
-      "serviceCount": 173,
+      "serviceCount": 174,
       "services": [
         {
           "name": "AD Connector",
@@ -18839,6 +18855,10 @@
           "url": "https://aws.amazon.com/network-firewall/"
         },
         {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
+        },
+        {
           "name": "AWS Organizations",
           "url": "https://aws.amazon.com/organizations"
         },
@@ -18861,6 +18881,10 @@
         {
           "name": "AWS PrivateLink",
           "url": "https://aws.amazon.com/privatelink/"
+        },
+        {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "AWS Resilience Hub",
@@ -19159,10 +19183,6 @@
           "url": "https://aws.amazon.com/opensearch-service/"
         },
         {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
-        },
-        {
           "name": "Amazon RDS Custom for Oracle",
           "url": "https://aws.amazon.com/rds/custom/"
         },
@@ -19396,7 +19416,7 @@
       },
       "partition": "aws-eusc",
       "regionLongName": "AWS European Sovereign Cloud (Germany)",
-      "serviceCount": 111,
+      "serviceCount": 112,
       "services": [
         {
           "name": "AD Connector",
@@ -19525,6 +19545,10 @@
         {
           "name": "AWS Organizations",
           "url": "https://aws.amazon.com/organizations"
+        },
+        {
+          "name": "AWS Outposts",
+          "url": "https://aws.amazon.com/outposts/"
         },
         {
           "name": "AWS Private Certificate Authority",
@@ -20140,6 +20164,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resource Access Manager (RAM)",
           "url": "https://aws.amazon.com/ram/"
         },
@@ -20402,10 +20430,6 @@
         {
           "name": "Amazon OpenSearch Service",
           "url": "https://aws.amazon.com/opensearch-service/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS for Db2",
@@ -20849,6 +20873,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resource Access Manager (RAM)",
           "url": "https://aws.amazon.com/ram/"
         },
@@ -21091,10 +21119,6 @@
         {
           "name": "Amazon OpenSearch Service",
           "url": "https://aws.amazon.com/opensearch-service/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -22056,7 +22080,7 @@
       },
       "partition": "aws",
       "regionLongName": "Mexico (Central)",
-      "serviceCount": 125,
+      "serviceCount": 126,
       "services": [
         {
           "name": "AD Connector",
@@ -22189,6 +22213,10 @@
         {
           "name": "AWS Network Firewall",
           "url": "https://aws.amazon.com/network-firewall/"
+        },
+        {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
         },
         {
           "name": "AWS Organizations",
@@ -22670,7 +22698,7 @@
       },
       "partition": "aws",
       "regionLongName": "South America (Sao Paulo)",
-      "serviceCount": 171,
+      "serviceCount": 172,
       "services": [
         {
           "name": "AD Connector",
@@ -22881,6 +22909,10 @@
           "url": "https://aws.amazon.com/network-firewall/"
         },
         {
+          "name": "AWS Network Security Manager",
+          "url": "https://aws.amazon.com/network-security-manager/"
+        },
+        {
           "name": "AWS Organizations",
           "url": "https://aws.amazon.com/organizations"
         },
@@ -22903,6 +22935,10 @@
         {
           "name": "AWS PrivateLink",
           "url": "https://aws.amazon.com/privatelink/"
+        },
+        {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "AWS Resilience Hub",
@@ -23207,10 +23243,6 @@
         {
           "name": "Amazon OpenSearch Service",
           "url": "https://aws.amazon.com/opensearch-service/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -23839,6 +23871,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -24197,10 +24233,6 @@
         {
           "name": "Amazon Q Developer",
           "url": "https://aws.amazon.com/q/developer/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -24749,6 +24781,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -25071,10 +25107,6 @@
         {
           "name": "Amazon Personalize",
           "url": "https://aws.amazon.com/personalize/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -25528,6 +25560,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -25786,10 +25822,6 @@
         {
           "name": "Amazon Q Developer",
           "url": "https://aws.amazon.com/q/developer/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -26237,6 +26269,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -26531,10 +26567,6 @@
         {
           "name": "Amazon Q Developer",
           "url": "https://aws.amazon.com/q/developer/"
-        },
-        {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
         },
         {
           "name": "Amazon RDS Custom for Oracle",
@@ -28294,6 +28326,10 @@
           "url": "https://aws.amazon.com/privatelink/"
         },
         {
+          "name": "AWS Quick",
+          "url": "https://aws.amazon.com/quicksuite/"
+        },
+        {
           "name": "AWS Resilience Hub",
           "url": "https://aws.amazon.com/resilience-hub/"
         },
@@ -28642,10 +28678,6 @@
           "url": "https://aws.amazon.com/q/business/"
         },
         {
-          "name": "Amazon Quick",
-          "url": "https://aws.amazon.com/quicksuite/"
-        },
-        {
           "name": "Amazon RDS Custom for Oracle",
           "url": "https://aws.amazon.com/rds/custom/"
         },
@@ -28815,7 +28847,7 @@
       "websiteDomainDualstack": "aws.com"
     }
   },
-  "retrievedAt": "2026-11-20T20:22:10Z",
+  "retrievedAt": "2026-11-21T07:09:35Z",
   "schemaVersion": 1,
   "sources": [
     {
@@ -28836,10 +28868,10 @@
       "version": "20251113063700"
     },
     {
-      "createdAt": "2026-11-20-16-17-05",
+      "createdAt": "2026-11-21-05-07-05",
       "kind": "aws-ip-ranges",
       "url": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-      "version": "1795191425"
+      "version": "1795237625"
     }
   ]
 }
